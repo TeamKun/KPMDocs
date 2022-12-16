@@ -90,7 +90,11 @@ const config = {
               {
                 label: "Twitter",
                 href: "https://twitter.com/peyang9799",
-              }
+              },
+              {
+                label: "Email",
+                href: "mailto:peyang@peya.tokyo"
+              },
             ],
           },
           {
