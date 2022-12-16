@@ -72,20 +72,41 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "ドキュメント",
             items: [
               {
-                label: "Tutorial",
+                label: "KPMを使い始める",
                 to: "/docs/intro",
               },
             ],
           },
           {
-            title: "More",
+            title: "開発者 - Peyang",
+            items: [
+              {
+                label: "GitHub",
+                href: "https://github.com/PeyaPeyaPeyang",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/peyang9799",
+              }
+            ],
+          },
+          {
+            title: "KPM",
             items: [
               {
                 label: "GitHub",
                 href: "https://github.com/TeamKUN/TeamKUNPluginManager",
+              },
+              {
+                label: "バグを報告",
+                href: "https://github.com/TeamKun/TeamKUNPluginManager/issues/new?template=bug_report.yml",
+              },
+              {
+                label: "機能をリクエスト",
+                href: "https://github.com/TeamKun/TeamKUNPluginManager/issues/new?template=feature_request.yml",
               },
             ],
           },
