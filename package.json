@@ -1,6 +1,7 @@
 {
   "name": "kpm-docs",
   "version": "0.0.0",
+  "description": "The TeamKUNPluginManager Documentation",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -11,8 +12,12 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "format": "prettier --write --cache .",
+    "lint": "eslint --cache .",
+    "lint:sarif": "eslint --cache . -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true"
   },
+  "homepage": "https://github.com/TeamKUN/KPMDocs",
   "dependencies": {
     "@docusaurus/core": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
@@ -24,6 +29,21 @@
     "budoux": "^0.4.0"
   },
   "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^3.0.0",
+    "@types/eslint": "^8.4.10",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.28.0",
+    "eslint-define-config": "^1.12.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "npm:eslint-plugin-i@^2.26.0-2",
+    "eslint-plugin-regexp": "^1.10.0",
+    "eslint-plugin-sort-class-members": "^1.15.2",
+    "eslint-plugin-unicorn": "^44.0.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1",
     "@docusaurus/module-type-aliases": "2.2.0",
     "@tsconfig/docusaurus": "^1.0.5",
     "typescript": "^4.7.4"

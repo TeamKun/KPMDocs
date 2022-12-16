@@ -1,46 +1,45 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github")
+const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'TeamKUNPluginManager',
-  tagline: '最も高度な PaperMC プラグイン管理ツール',
-  url: 'https://example.com/',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/kpm.png',
+  title: "TeamKUNPluginManager",
+  tagline: "最も高度な PaperMC プラグイン管理ツール",
+  url: "https://example.com/",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/kpm.png",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'teamkun', // Usually your GitHub org/user name.
-  projectName: 'kpmdocs', // Usually your repo name.
+  organizationName: "teamkun", // Usually your GitHub org/user name.
+  projectName: "kpmdocs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'ja',
-    locales: ['ja'],
+    defaultLocale: "ja",
+    locales: ["ja"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.ts'),
+          sidebarPath: require.resolve("./sidebars.ts"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/TeamKUN/KPMDocs/edit/main/',
+          editUrl: "https://github.com/TeamKUN/KPMDocs/edit/main/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -50,43 +49,43 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'TeamKUNPluginManager',
+        title: "TeamKUNPluginManager",
         logo: {
-          alt: 'KPM Logo Logo',
-          src: 'img/kpm.png',
+          alt: "KPM Logo Logo",
+          src: "img/kpm.png",
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: '使い始める',
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "使い始める",
           },
           {
-            href: 'https://github.com/TeamKUN/TeamKUNPluginManager',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/TeamKUN/TeamKUNPluginManager",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: "Tutorial",
+                to: "/docs/intro",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/TeamKUN/TeamKUNPluginManager',
+                label: "GitHub",
+                href: "https://github.com/TeamKUN/TeamKUNPluginManager",
               },
             ],
           },
@@ -98,6 +97,6 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-};
+}
 
-module.exports = config;
+module.exports = config
