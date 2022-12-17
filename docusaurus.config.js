@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github")
-const darkCodeTheme = require("prism-react-renderer/themes/dracula")
+const lightCodeTheme = require("prism-react-renderer/themes/vsLight")
+const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,6 +37,9 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/TeamKUN/KPMDocs/edit/main/",
+
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -57,14 +60,19 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "kpm",
             position: "left",
-            label: "使い始める",
+            label: "KPMとは?",
+          },
+          {
+            href: "https://github.com/TeamKun/TeamKUNPluginManager/releases",
+            position: "right",
+            label: "ダウンロード"
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager",
-            label: "GitHub",
             position: "right",
+            className: "icon-link i-github"
           },
         ],
       },
@@ -75,8 +83,8 @@ const config = {
             title: "ドキュメント",
             items: [
               {
-                label: "KPMを使い始める",
-                to: "/docs/intro",
+                label: "KPMとは?",
+                to: "/docs/kpm",
               },
             ],
           },
@@ -115,7 +123,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright &copy; ${new Date().getFullYear()} TeamKUN., Peyang`,
+        copyright: `Copyright &copy; ${new Date().getFullYear()} <a href="https://github.com/TeamKUN">TeamKUN</a>., <a href="https://peya.tokyo/">Peyang</a>`,
       },
       prism: {
         theme: lightCodeTheme,
