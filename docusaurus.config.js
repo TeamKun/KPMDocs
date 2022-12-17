@@ -31,7 +31,7 @@ const config = {
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
           // Please change this to your repo.
@@ -44,7 +44,7 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
-      }),
+      },
     ],
   ],
 
@@ -60,9 +60,9 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "kpm",
+            docId: "home",
             position: "left",
-            label: "KPMとは?",
+            label: "ホーム",
           },
           {
             href: "https://github.com/TeamKun/TeamKUNPluginManager/releases",
@@ -83,8 +83,8 @@ const config = {
             title: "ドキュメント",
             items: [
               {
-                label: "KPMとは?",
-                to: "/docs/kpm",
+                label: "ホーム",
+                to: "/docs/home",
               },
             ],
           },
@@ -129,7 +129,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    })
 }
 
 module.exports = config
