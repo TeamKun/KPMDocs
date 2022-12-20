@@ -3,11 +3,13 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/vsLight")
 const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
-const kpmtoml = require("./config/kpmtoml").project
+const getInfo = require("./kpmInfo")
+const kpmInfo = getInfo()
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: kpmtoml.project.name,
+  title: kpmInfo.name,
   tagline: "最も高度な PaperMC プラグイン管理ツール",
   url: "https://example.com/",
   baseUrl: "/",
@@ -57,9 +59,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: kpmtoml.project.name,
+        title: kpmInfo.name,
         logo: {
-          alt: `${kpmtoml.project.short_name} Logo Logo`,
+          alt: `${kpmInfo.short_name} Logo Logo`,
           src: "img/kpm.png",
         },
         items: [
@@ -74,12 +76,12 @@ const config = {
             label: "KPMを使い始める",
           },
           {
-            href: kpmtoml.project.version.url,
+            href: kpmInfo.version.url,
             position: "right",
             label: "ダウンロード"
           },
           {
-            href: kpmtoml.project.url,
+            href: kpmInfo.url,
             position: "right",
             className: "icon-link i-github"
           },
@@ -96,7 +98,7 @@ const config = {
                 to: "/docs/home",
               },
               {
-                label: `${kpmtoml.project.short_name}を使い始める`,
+                label: `${kpmInfo.short_name} を使い始める`,
                 to: "/docs/getting-started/",
               },
             ],
@@ -119,19 +121,19 @@ const config = {
             ],
           },
           {
-            title: kpmtoml.project.short_name,
+            title: kpmInfo.short_name,
             items: [
               {
                 label: "GitHub",
-                href: kpmtoml.project.url,
+                href: kpmInfo.url,
               },
               {
                 label: "バグを報告",
-                href: `${kpmtoml.project.url}/issues/new?template=bug_report.yml`,
+                href: `${kpmInfo.url}/issues/new?template=bug_report.yml`,
               },
               {
                 label: "機能をリクエスト",
-                href: `${kpmtoml.project.url}/issues/new?template=feature_request.yml`,
+                href: `${kpmInfo.url}/issues/new?template=feature_request.yml`,
               },
             ],
           },
