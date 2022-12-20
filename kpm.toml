@@ -1,7 +1,7 @@
 [project]
 name = "TeamKUNPluginManager"
 short_name = "KPM"
-url = "https//github.com/TeamKun/{project.name}"
+url = "https://github.com/TeamKun/{project.name}"
 
 [project.version]
 name = "v2.8.3"
