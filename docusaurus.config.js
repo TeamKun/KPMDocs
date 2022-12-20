@@ -69,7 +69,7 @@ const config = {
             label: "ホーム",
           },
           {
-            to: "/docs/use-kpm/getting-started/install",
+            to: "/docs/use-kpm/getting-started",
             position: "left",
             label: "KPMを使い始める",
           },
@@ -97,7 +97,7 @@ const config = {
               },
               {
                 label: `KPM を使い始める`,
-                to: "/docs/getting-started/",
+                to: "/docs/getting-started",
               },
             ],
           },
