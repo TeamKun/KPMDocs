@@ -3,13 +3,11 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/vsLight")
 const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
-const getInfo = require("./kpmInfo")
-const kpmInfo = getInfo()
 
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: kpmInfo.name,
+  title: "TeamKUNPluginManager",
   tagline: "最も高度な PaperMC プラグイン管理ツール",
   url: "https://example.com/",
   baseUrl: "/",
@@ -59,9 +57,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: kpmInfo.name,
+        title: "TeamKUNPluginManager",
         logo: {
-          alt: `${kpmInfo.short_name} Logo Logo`,
+          alt: `KPM Logo`,
           src: "img/kpm.png",
         },
         items: [
@@ -76,12 +74,12 @@ const config = {
             label: "KPMを使い始める",
           },
           {
-            href: kpmInfo.version.url,
+            href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
             position: "right",
             label: "ダウンロード"
           },
           {
-            href: kpmInfo.url,
+            href: "https://github.com/TeamKUN/TeamKUNPluginManager",
             position: "right",
             className: "icon-link i-github"
           },
@@ -98,7 +96,7 @@ const config = {
                 to: "/docs/home",
               },
               {
-                label: `${kpmInfo.short_name} を使い始める`,
+                label: `KPM を使い始める`,
                 to: "/docs/getting-started/",
               },
             ],
@@ -121,19 +119,19 @@ const config = {
             ],
           },
           {
-            title: kpmInfo.short_name,
+            title: "KPM",
             items: [
               {
                 label: "GitHub",
-                href: kpmInfo.url,
+                href: "https://github.com/TeamKUN/TeamKUNPluginManager",
               },
               {
                 label: "バグを報告",
-                href: `${kpmInfo.url}/issues/new?template=bug_report.yml`,
+                href: `https://github.com/TeamKUN/TeamKUNPluginManager/issues/new?template=bug_report.yml`,
               },
               {
                 label: "機能をリクエスト",
-                href: `${kpmInfo.url}/issues/new?template=feature_request.yml`,
+                href: `https://github.com/TeamKUN/TeamKUNPluginManager/issues/new?template=feature_request.yml`,
               },
             ],
           },

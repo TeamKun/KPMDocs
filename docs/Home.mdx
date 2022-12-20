@@ -4,17 +4,9 @@ slug: /home
 
 ---
 
-
-import getInfo from '../kpmInfo.js'
-const info = getInfo()
-const projectName = info.name
-const shortName = info.short_name
-
-<h1>{projectName}</h1>
-
 ## 概要
 
-<>{projectName}</> は、わずかなアクションで安全で簡単にインストールを行うフルマネージド統合プラグインマネージャです。
+TeamKUNPluginManager は、わずかなアクションで安全で簡単にインストールを行うフルマネージド統合プラグインマネージャです。
 KPM を既存のサーバ管理フローに統合すれば、 GitHub 等のリモートリポジトリや HTTP サーバに登録された依存関係を自動で解決し、 単一のフローとしてプラグインをインストールできます。
 また、 KPM は依存関係ツリーをインストール時に構築し不必要なプラグインをわかりやすくリコメンデーションします。
 そのため、本番環境でのサーバアプリケーションパフォーマンスを継続的に監視したり、依存関係を最適化するための推奨事項と視覚的な手がかりを提供したりして、サーバの管理をより簡単で安全にします。
@@ -26,7 +18,7 @@ KPMのコンソールユーザインタフェースは [apt](https://salsa.debia
 <details>
     <summary>AWS文学の教養がない場合は？</summary>
 
-    <>{projectName}</> は、 簡単にプラグインをインストールするプラグインマネージャです。
+    TeamKUNPluginManager は、 簡単にプラグインをインストールするプラグインマネージャです。
     KPM を使用すれば、プラグインインストール時に GitHub 等から自動で依存関係もインストールできます。
     また、 KPMは依存関係ツリーを構築し、不必要なプラグインを通知します。
     これらにより、サーバを簡単に管理できるようになります。
@@ -37,10 +29,11 @@ KPMのコンソールユーザインタフェースは [apt](https://salsa.debia
 ## 姉妹プロジェクト
 
 + [KPM Updater](https://github.com/TeamKUN/KPMUpdater)
-<span>{shortName}</span>を自動でアップデートします。詳しくは[こちら](#)を参照してください。
+KPMを自動でアップデートします。詳しくは[こちら](#)を参照してください。
 
 + [The KPM Plugin Manager Repository](https://github.com/TeamKUN/PluginManagerRepository)
-<span>{shortName}</span>のビルトインのエイリアスを定義します。TeamKUN メンバであれば自由に追加することが可能です。
+KPMのビルトインのエイリアスを定義します。TeamKUN メンバであれば自由に追加することが可能です。
 
 + ~~[KPM Authorization Server](https://github.com/TeamKun/KPMAuthorizeServer)~~\[Deprecated・非推奨\]
-<span>{shortName}</span>の認証を簡単に行うサーバです。現在は使用されていません。
+KPMのビルトインのエイリアスを定義します。TeamKUN メンバであれば自由に追加することが可能です。
+の認証を簡単に行うサーバです。現在は使用されていません。
