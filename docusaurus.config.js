@@ -3,16 +3,21 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/vsLight")
 const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
+const kpmtoml = require("./config/kpmtoml").project
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "TeamKUNPluginManager",
+  title: kpmtoml.project.name,
   tagline: "最も高度な PaperMC プラグイン管理ツール",
   url: "https://example.com/",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/kpm.png",
+
+  clientModules: [
+    require.resolve("@fontsource/jetbrains-mono/index.css"),
+  ],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -52,9 +57,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "TeamKUNPluginManager",
+        title: kpmtoml.project.name,
         logo: {
-          alt: "KPM Logo Logo",
+          alt: `${kpmtoml.project.short_name} Logo Logo`,
           src: "img/kpm.png",
         },
         items: [
@@ -65,16 +70,22 @@ const config = {
             label: "ホーム",
           },
           {
-            href: "https://github.com/TeamKun/TeamKUNPluginManager/releases",
+            type: "doc",
+            docId: "use-kpm/getting-started/install",
+            position: "left",
+            label: "KPMを使い始める",
+          },
+          {
+            href: kpmtoml.project.version.url,
             position: "right",
             label: "ダウンロード"
           },
           {
-            href: "https://github.com/TeamKUN/TeamKUNPluginManager",
+            href: kpmtoml.project.url,
             position: "right",
             className: "icon-link i-github"
           },
-        ],
+        ]
       },
       footer: {
         style: "dark",
@@ -85,6 +96,10 @@ const config = {
               {
                 label: "ホーム",
                 to: "/docs/home",
+              },
+              {
+                label: `${kpmtoml.project.short_name}を使い始める`,
+                to: "/docs/getting-started/",
               },
             ],
           },
@@ -106,19 +121,19 @@ const config = {
             ],
           },
           {
-            title: "KPM",
+            title: kpmtoml.project.short_name,
             items: [
               {
                 label: "GitHub",
-                href: "https://github.com/TeamKUN/TeamKUNPluginManager",
+                href: kpmtoml.project.url,
               },
               {
                 label: "バグを報告",
-                href: "https://github.com/TeamKun/TeamKUNPluginManager/issues/new?template=bug_report.yml",
+                href: `${kpmtoml.project.url}/issues/new?template=bug_report.yml`,
               },
               {
                 label: "機能をリクエスト",
-                href: "https://github.com/TeamKun/TeamKUNPluginManager/issues/new?template=feature_request.yml",
+                href: `${kpmtoml.project.url}/issues/new?template=feature_request.yml`,
               },
             ],
           },
