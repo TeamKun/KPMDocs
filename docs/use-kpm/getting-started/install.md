@@ -1,7 +1,3 @@
----
-slug: /getting-started/install-kpm
----
-
 # KPM をインストールする
 
 KPM を新規に使用する人向けのインストール ガイドです。  

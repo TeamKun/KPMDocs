@@ -64,14 +64,12 @@ const config = {
         },
         items: [
           {
-            type: "doc",
-            docId: "home",
+            to: "/docs/home",
             position: "left",
             label: "ホーム",
           },
           {
-            type: "doc",
-            docId: "use-kpm/getting-started/install",
+            to: "/docs/use-kpm/getting-started/install",
             position: "left",
             label: "KPMを使い始める",
           },
