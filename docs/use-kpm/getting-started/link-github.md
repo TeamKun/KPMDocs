@@ -14,7 +14,7 @@
 
 ### ステップ 1：GitHub アカウントを作成する
 
-[こちら](https://docs.github.com/ja/get-started/signing-up-for-github/signing-up-for-a-new-github-account) から GitHub アカウントを登録します。
+[こちら](https://docs.github.com/ja/get-started/signing-up-for-github/signing-up-for-a-new-github-account)から GitHub アカウントを登録します。
 
 <details>
     <summary>上記の GitHub 公式ドキュメントを見ても GitHub アカウントの作り方がわからない方へ</summary>
