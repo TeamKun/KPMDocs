@@ -8,7 +8,7 @@
 
 | 要件名 | 要件 | 摘要 |
 | :--- | :-- | :---- |
-| TeamKUNPluginManager | 2.5+ | KPM をまだインストールしていない方は[こちら](Install)。 |
+| TeamKUNPluginManager | 2.5+ | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install.mdx)。 |
 | [GitHub](https://www.github.com) アカウント | 有効な [GitHub](https://www.github.com) アカウント |  |
 
 
