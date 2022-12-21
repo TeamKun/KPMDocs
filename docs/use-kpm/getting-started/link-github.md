@@ -44,7 +44,7 @@ GitHub OAuth トークンをすでに持っている場合は、方法 2 を行�
 
 ### 方法 1： KPM で GitHub OAuth トークンを生成する
 
-1. KPM が起動したサーバで `/kpm register` を実行します。
+1. KPM が起動したサーバで <kbd>/kpm register</kbd> を実行します。
 2. 画面の指示に従って, <kbd>y</kbd> を入力します。  
   ![スクリーンショット](images/confirm.png)
 3. 表示されたリンクまたは[こちら](https://www.github.com/login/device)から GitHub の認証ページにアクセスします。
