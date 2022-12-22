@@ -6,18 +6,18 @@ type DeprecationProps = {
     message?: string;
     link?: string;
     version?: string;
-    isRemove?: boolean;
+    removeMode?: boolean;
 }
 
 
-const Deprecation: React.FC<DeprecationProps> = ({ message, link, version , isRemove}) => {
+const Deprecation: React.FC<DeprecationProps> = ({ message, link, version , removeMode}) => {
     const versionString = version ?? "次のリリース";
-    const messageBody = message ?? isRemove ?
+    const messageBody = message ?? removeMode ?
         `この機能は KPM ${versionString} で**<strong>削除</strong>**されます。` :
         `この機能は KPM ${versionString} から非推奨になります。`;
     const linkString = link ? `詳細は <a href="${link}">${link}</a> を参照してください。` : "";
 
-    const admonitionType = isRemove ? "caution" : "note";
+    const admonitionType = removeMode ? "caution" : "note";
 
     return (
         <Admonition type={admonitionType} title={
