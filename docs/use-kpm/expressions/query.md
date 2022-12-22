@@ -20,11 +20,9 @@
 
 #### 省略形
 
-+ `example/ExamplePlugin`
-
-また、 `config.yml` で指定されたオーナー名は省略可能です。
-
++ `example/ExamplePlugin`  
 + `ExamplePlugin`
+  `config.yml` で指定されたオーナー名は省略可能です。`example` が指定されている場合、`ExamplePlugin` は `example/ExamplePlugin` として解釈されます。
 
 ##### 省略形におけるバージョン指定
 
