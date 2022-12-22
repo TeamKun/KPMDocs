@@ -53,6 +53,11 @@ const config = {
     ],
   ],
 
+  plugins: [
+      require.resolve("docusaurus-plugin-image-zoom"),
+  ],
+
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -142,6 +147,13 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      zoom: {
+        background: {
+          light: 'rgba(0, 0, 0, 0.6)',
+          dark: 'rgba(0, 0, 0, 0.6)'
+        }
+      }
+
     })
 }
 
