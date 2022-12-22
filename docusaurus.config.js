@@ -79,6 +79,16 @@ const config = {
             label: "KPMを使い始める",
           },
           {
+            to: "/docs/use-kpm/commands",
+            position: "left",
+            label: "コマンド一覧",
+          },
+          {
+            to: "/docs/expressions",
+            position: "left",
+            label: "用語集",
+          },
+          {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
             position: "right",
             label: "ダウンロード"
@@ -141,7 +151,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright &copy; ${new Date().getFullYear()} <a href="https://github.com/TeamKUN">TeamKUN</a>., <a href="https://peya.tokyo/">Peyang</a>`,
+        copyright: `Copyright &copy; ${new Date().getFullYear()} <a href="https://github.com/TeamKUN">KUN Development Team</a>., <a href="https://peya.tokyo/">Peyang</a>`,
       },
       prism: {
         theme: lightCodeTheme,

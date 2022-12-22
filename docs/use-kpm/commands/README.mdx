@@ -1,0 +1,204 @@
+import Deprecation from "../../../src/components/Deprecation";
+import DocCard from "@theme/DocCard"; import BelowDocument from "../../../src/components/BelowDocument";
+
+# コマンド
+
+KPM のコマンドの一覧と実行要件を説明しています。
+
+---
+
+## コマンド一覧
+
+### <kbd>/teamkunpluginmanager</kbd>
+
+KPM のメインコマンドです。
+KPM の\*\* **すべての** \*\* コマンドはこのコマンドのサブコマンドです。
+
+第一引数を省略した場合[ヘルプ](#help)を表示します。
+
+#### エイリアス
+
++ [<kbd>/kpm</kbd>](#teamkunpluginmanager)
+
+  :::tip
+
+  このエイリアスが最も使用されています！
+
+  :::
+
++ [<kbd>/kunpluginmanager</kbd>](#teamkunpluginmanager)
++ [<kbd>/kunmgmt</kbd>](#teamkunpluginmanager)
++ [<kbd>/kunpm</kbd>](#teamkunpluginmanager)
+
+#### コマンド構文
+
++ `/teamkunpluginmanager [<サブコマンド> [引数...]]`
+
+#### 権限
+
++ `kpm.use`
++ `kpm.*`
+
+:::note
+
+これより下は、すべて [<kbd>/kpm</kbd>](#teamkunpluginmanager-コマンド) のサブコマンドです。  
+適宜、脳内補完してください。
+
+例：** <kbd>example</kbd> ** => <kbd>/kpm example</kbd>
+
+:::
+
+---
+
+### <kbd>autoremove</kbd>
+
+不要なプラグインを再帰的に自動でアンインストールします。  
+
+不要なプラグインの条件は、以下のとおりです；
++ KPM が（他のプラグインの依存関係として）自動でインストールした。
++ 依存されているプラグインがアンインストールされている（サーバに存在しない）。
++ 上記の条件を満たすプラグインの依存関係であり、かつそれが上記の条件を満たす。
+
+#### エイリアス
+
+*\(なし)*
+
+#### コマンド構文
+
++ `autoremove`\(引数なし)
+
+#### 権限
+
++ `kpm.autoremove`
++ `kpm.*`
+
+---
+
+### <kbd>clean</kbd>
+
+削除され、サーバに存在しないプラグインのデータ・フォルダとその中身を削除します。  
+
+:::tip
+
+削除から除外するには、 KPM 設定ファイルの `ignore` に名前を追加します。
+
+:::
+
+#### エイリアス
+
+*\(なし)*
+
+#### コマンド構文
+
++ `clean`\(引数なし)
+
+#### 権限
+
++ `kpm.clean`
++ `kpm.*`
+
+---
+
+### <kbd>export</kbd>
+
+プラグインの設定ファイルとダウンロードリンクを含んだファイルを生成します。
+
+<BelowDocument docId="use-kpm/commands/export" />
+
+---
+
+### <kbd>fix</kbd>
+
+KPM が依存関係ツリーの構築に失敗した場合に、依存関係ツリーを再構築します。
+
+:::info
+
+このコマンドは、KPM が依存関係ツリーの構築に失敗した場合にのみ使用できます。  
+使用する場面は適宜通知されます。
+
+:::
+
+<Deprecation version="v3" removeMode />
+
+#### エイリアス
+
+*\(なし)*
+
+#### コマンド構文
+
++ `fix`\(引数なし)
+
+#### 権限
+
++ `kpm.fix`
++ `kpm.*`
+
+---
+
+### <kbd>info</kbd>
+
+プラグインの詳細な情報を表示します。
+
+<BelowDocument docId="use-kpm/commands/info" />
+
+---
+
+### <kbd>install</kbd>
+
+プラグインを新規[インストール](/docs/expressions/README#インストール)します。
+
+<BelowDocument docId="use-kpm/commands/install" />
+
+---
+
+### <kbd>register</kbd>
+
+KPM と GitHub の連携を行います。
+
+<BelowDocument docId="use-kpm/commands/register" />
+
+---
+
+### <kbd>status</kbd>
+
+KPM の動作状態を表示します。
+
+#### エイリアス
+
+*\(なし)*
+
+#### コマンド構文
+
++ `status`\(引数なし)
+
+#### 権限
+
++ `kpm.status`
++ `kpm.*`
+
+---
+
+### <kbd>uninstall</kbd>
+
+プラグインをサーバから削除\([アンインストール](/docs/expressions/README#アンインストール))します。
+
+<BelowDocument docId="use-kpm/commands/uninstall" />
+
+---
+
+### <kbd>update</kbd>
+
+KPM のプラグイン定義ファイルを更新します。  
+
+#### エイリアス
+
+*\(なし)*
+
+#### コマンド構文
+
++ `update`\(引数なし)
+
+#### 権限
+
++ `kpm.update`
++ `kpm.*`
