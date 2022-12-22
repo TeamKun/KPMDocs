@@ -17,6 +17,7 @@ const config = {
 
   clientModules: [
     require.resolve("@fontsource/jetbrains-mono/index.css"),
+    require.resolve("@fortawesome/fontawesome-free/css/all.min.css"),
   ],
 
   // GitHub pages deployment config.
