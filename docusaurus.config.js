@@ -13,7 +13,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/kpm.png",
+  favicon: "favicon.ico",
 
   clientModules: [
     require.resolve("@fontsource/jetbrains-mono/index.css"),
@@ -66,7 +66,7 @@ const config = {
         title: "TeamKUNPluginManager",
         logo: {
           alt: `KPM Logo`,
-          src: "img/kpm.png",
+          src: "img/kpm.svg",
         },
         items: [
           {
