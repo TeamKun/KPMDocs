@@ -38,7 +38,7 @@ jobs:
           publish_dir: ./build
       - name: Update GitHub Deployment
         if: success()
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-status@v2
         with:
           token: ${{ github.token }}
           deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
@@ -47,7 +47,7 @@ jobs:
           environment: production
       - name: Update GitHub Deployment
         if: failure()
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-status@v2
         with:
           token: ${{ github.token }}
           deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
@@ -55,7 +55,7 @@ jobs:
           environment-url: https://kpm.kunlab.org
       - name: Update GitHub Deployment
         if: cancelled()
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-status@v2
         with:
           token: ${{ github.token }}
           deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
