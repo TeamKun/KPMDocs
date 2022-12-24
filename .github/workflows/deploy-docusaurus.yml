@@ -1,0 +1,91 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - production
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: chrnorm/deployment-action@v2
+      name: Create GitHub Deployment
+      id: deploy-status
+      with:
+          token: ${{ github.token }}
+          environment-url: https://kpm.kunlab.org
+          environment: production
+          status: in_progress
+      
+    - uses: actions/setup-node@v2
+      with:
+        cache: npm
+        node-version: 18
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+    - name: Update GitHub Deployment
+      if: success()
+      uses: chrnorm/deployment-action@v2
+      with:
+        token: ${{ github.token }}
+        deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
+        state: success
+        environment-url: https://kpm.kunlab.org
+        environment: production
+    - name: Update GitHub Deployment
+      if: failure()
+      uses: chrnorm/deployment-action@v2
+      with:
+        token: ${{ github.token }}
+        deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
+        state: failure
+        environment-url: https://kpm.kunlab.org
+    - name: Update GitHub Deployment
+      if: cancelled()
+      uses: chrnorm/deployment-action@v2
+      with:
+        token: ${{ github.token }}
+        deployment-id: ${{ steps.deploy-status.outputs.deployment_id }}
+        state: cancelled
+        environment-url: https://kpm.kunlab.org
+  tagging:
+    runs-on: ubuntu-latest
+    if: jobs.deploy.result == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get package version
+        id: package-version
+        run: echo "::set-output name=version::$(node -p -e "require('./package.json').version")"
+      - name: Get tag version and compare versions
+        id: tag-version
+        run: |
+          echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+          version=$(node -p -e "require('./package.json').version")
+          tag=$(git describe --tags --abbrev=0)
+          if [[ $version == $tag ]]; then
+            echo "::set-output name=compare::true"
+          else
+            echo "::set-output name=compare::false"
+          fi
+      - name: Create tag if versions have upgraded
+        if: steps.tag-version.outputs.compare == 'false'
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a ${{ steps.package-version.outputs.version }} -m "Production release ${{ steps.package-version.outputs.version }}"
+          git push --follow-tags
