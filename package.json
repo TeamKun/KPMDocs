@@ -15,6 +15,8 @@
     "typecheck": "tsc",
     "format": "prettier --write --cache .",
     "lint": "eslint --cache .",
+    "check:format": "prettier --cache --check .",
+    "check:lint": "run-s lint",
     "lint:sarif": "eslint --cache . -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true"
   },
   "homepage": "https://github.com/TeamKUN/KPMDocs",
