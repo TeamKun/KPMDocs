@@ -4,7 +4,6 @@
 const lightCodeTheme = require("prism-react-renderer/themes/vsLight")
 const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
 
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "TeamKUNPluginManager",
@@ -54,10 +53,7 @@ const config = {
     ],
   ],
 
-  plugins: [
-      require.resolve("docusaurus-plugin-image-zoom"),
-  ],
-
+  plugins: [require.resolve("docusaurus-plugin-image-zoom")],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -92,14 +88,14 @@ const config = {
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
             position: "right",
-            label: "ダウンロード"
+            label: "ダウンロード",
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager",
             position: "right",
-            className: "icon-link i-github"
+            className: "icon-link i-github",
           },
-        ]
+        ],
       },
       footer: {
         style: "dark",
@@ -130,7 +126,7 @@ const config = {
               },
               {
                 label: "Email",
-                href: "mailto:peyang@peya.tokyo"
+                href: "mailto:peyang@peya.tokyo",
               },
             ],
           },
@@ -160,12 +156,11 @@ const config = {
       },
       zoom: {
         background: {
-          light: 'rgba(0, 0, 0, 0.6)',
-          dark: 'rgba(0, 0, 0, 0.6)'
-        }
-      }
-
-    })
+          light: "rgba(0, 0, 0, 0.6)",
+          dark: "rgba(0, 0, 0, 0.6)",
+        },
+      },
+    }),
 }
 
 module.exports = config

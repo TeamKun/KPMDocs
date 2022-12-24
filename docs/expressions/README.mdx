@@ -1,4 +1,4 @@
-import DocCard from "@theme/DocCard";
+import DocCard from "@theme/DocCard"
 
 # KPM 用語集
 
@@ -13,9 +13,9 @@ import DocCard from "@theme/DocCard";
 Team<ins>K</ins>UN<ins>P</ins>lugin<ins>M</ins>anager の頭文字を取った略称です。  
 このドキュメントでは TeamKUNPluginManager を KPM と表記しています。適宜読み替えてください。
 
-:::tip 
+:::tip
 
-将来的に、KPM は TeamKUNPluginManager の別名として使用され、略称ではなくなる可能性があります。\(npmのように)
+将来的に、KPM は TeamKUNPluginManager の別名として使用され、略称ではなくなる可能性があります。\(npm のように)
 
 :::
 
@@ -31,6 +31,7 @@ KPM は、 PaperMC 上でのみ動作します。詳しくは[こちら](/docs/u
 KPM では、[GitHub](https://www.github.com/) 上に公開されているプラグインをインストールできます。また、 KPM を使用するには [GitHub](https://www.github.com/) アカウントが必要です。
 詳しくは[こちら](#)を参照してください。
 また、 GitHub 関連用語は[こちら](#github-関連用語一覧)を参照してください。
+
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 
 ---
@@ -46,6 +47,7 @@ KPM では、 [GitHub](#github) と KPM を連携するために使用します�
 
 GitHub リポジトリは、[GitHub](#github) 上に公開されているプラグインのソースコードを管理するための場所です。  
 KPM では、 GitHub リポジトリ上に[リリース](#リリース)されているプラグインをインストールできます。詳しくは[こちら](#)を参照してください。
+
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 
 ### リリース
@@ -67,31 +69,33 @@ KPM が[クエリ](#クエリ)\(文字列のこと。)からプラグインを�
 クエリは、 KPM がプラグインを解決するために使用する文字列です。
 詳しくは以下を参照してください。
 
-<DocCard item={{
+<DocCard
+  item={{
     type: "link",
     label: "クエリ文字列とは？",
     docId: "expressions/query",
     href: "/docs/expressions/query",
-}} />
+  }}
+/>
 
 ### プラグインリゾルバ
 
 プラグインリゾルバは、 KPM がプラグインを解決するために使用するモジュールです。
 現在は、以下のプラグインリゾルバが存在します。
 
-+ GitHub リゾルバ
+- GitHub リゾルバ
 
   `https://github.com/TemKun/StealPlugin` や、 `TeamKun/StealPlugin` などのクエリを解決します。
 
-+ Spigot MC リゾルバ
+- Spigot MC リゾルバ
 
   `https://www.spigotmc.org/resources/stealplugin.12345` などのクエリを解決します。
 
-+ エイリアスリゾルバ
+- エイリアスリゾルバ
 
   `u` など、予め定義されたエイリアスのクエリを解決します。
 
-+ CurseForge リゾルバ
+- CurseForge リゾルバ
 
   `https://www.curseforge.com/minecraft/mc-mods/stealplugin` や、 `https://dev.bukkit.org/projects/stealplugin` などのクエリを解決します。
 
@@ -103,8 +107,8 @@ KPM が[クエリ](#クエリ)\(文字列のこと。)からプラグインを�
 
 1. プラグインを無効化する
 2. プラグインをアンロードする
-    1. プラグインが登録したコマンドを削除する
-    2. プラグインが登録したレシピを削除する
+   1. プラグインが登録したコマンドを削除する
+   2. プラグインが登録したレシピを削除する
 3. プラグインをサーバのインデックスから削除する
 4. プラグインのクラスローダーを削除する
 5. サーバ JVM の[ガベージ・コレクション\(GC)](https://wa3.i-3-i.info/word1176.html) を実行する
@@ -134,10 +138,9 @@ KPM がプラグインをサーバーから削除する一連の流れをアン�
 
 1. プラグインを無効化する
 2. プラグインをアンロードする
-    1. プラグインが登録したコマンドを削除する
-    2. プラグインが登録したレシピを削除する
+   1. プラグインが登録したコマンドを削除する
+   2. プラグインが登録したレシピを削除する
 3. プラグインをサーバのインデックスから削除する
 4. プラグインのクラスローダーを削除する
 5. サーバ JVM の[ガベージ・コレクション\(GC)](https://wa3.i-3-i.info/word1176.html) を実行する
 6. プラグインのファイルを削除する
-

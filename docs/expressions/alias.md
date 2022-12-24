@@ -8,19 +8,18 @@ import DocCard from "@theme/DocCard";
 
 ## このページの前提要件
 
-| 要件名 | 要件 | 摘要 |
-| :--- | :-- | :---- |
-| TeamKUNPluginManager | alpha-0.1a+ | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install.mdx)。 |
-| リモートサーバ/リポジトリ | 必須 | `json` ファイルをアップロードできる HTTP サーバ/ GitHub リポジトリが必要です。 |
-
+| 要件名                    | 要件        | 摘要                                                                                      |
+| :------------------------ | :---------- | :---------------------------------------------------------------------------------------- |
+| TeamKUNPluginManager      | alpha-0.1a+ | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install.mdx)。 |
+| リモートサーバ/リポジトリ | 必須        | `json` ファイルをアップロードできる HTTP サーバ/ GitHub リポジトリが必要です。            |
 
 ### ステップ 1：エイリアスを定義する JSON を記述します。
 
 ```json
 {
-    "エイリアス名": "ダウンロードURLまたはクエリ",
-    "steal": "https://github.com/TeamKun/StealPlugin",
-    "a": "https://example.com/ExamplePlugin-1.0.jar"
+  "エイリアス名": "ダウンロードURLまたはクエリ",
+  "steal": "https://github.com/TeamKun/StealPlugin",
+  "a": "https://example.com/ExamplePlugin-1.0.jar"
 }
 ```
 
@@ -29,6 +28,7 @@ import DocCard from "@theme/DocCard";
 ### ステップ 3：KPM にエイリアスデータセットを追加します
 
 `config.yml` の以下の箇所を追記 / 編集します。
+
 ```yaml
 #19行目
 config:

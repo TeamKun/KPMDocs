@@ -12,7 +12,6 @@ concurrency:
 jobs:
   tagging:
     runs-on: ubuntu-latest
-    if: jobs.deploy.result == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v3

@@ -6,11 +6,10 @@
 
 ## このページの前提要件
 
-| 要件名 | 要件 | 摘要 |
-| :--- | :-- | :---- |
-| TeamKUNPluginManager | 2.5+ | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install.mdx)。 |
-| [GitHub](https://www.github.com) アカウント | 有効な [GitHub](https://www.github.com) アカウント |  |
-
+| 要件名                                      | 要件                                               | 摘要                                                                                      |
+| :------------------------------------------ | :------------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| TeamKUNPluginManager                        | 2.5+                                               | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install.mdx)。 |
+| [GitHub](https://www.github.com) アカウント | 有効な [GitHub](https://www.github.com) アカウント |                                                                                           |
 
 ### ステップ 1：GitHub アカウントを作成する
 
@@ -19,7 +18,7 @@
 <details>
     <summary>上記の GitHub 公式ドキュメントを見ても GitHub アカウントの作り方がわからない方へ</summary>
 
-[Google](https://www.google.com) で物事を検索する力をつけましょう！ 
+[Google](https://www.google.com) で物事を検索する力をつけましょう！
 基本的に [Google](https://www.google.co.jp) は安全で、あなたの味方です。  
 あなたがサーバ管理初心者でも、またそうでなくても、[Google](https://www.google.it/) はあなたをあらゆる面でサポートします。  
 まずは [Google](https://www.google.jp)で「GitHub 登録方法」で検索してみましょう。
@@ -46,12 +45,13 @@ GitHub OAuth トークンをすでに持っている場合は、方法 2 を行�
 
 1. KPM が起動したサーバで <kbd>/kpm register</kbd> を実行します。
 2. 画面の指示に従って, <kbd>y</kbd> を入力します。
-  ![スクリーンショット](images/confirm.png)
+   ![スクリーンショット](images/confirm.png)
 3. 表示されたリンクまたは[こちら](https://www.github.com/login/device)から GitHub の認証ページにアクセスします。
 4. 表示されたコードを認証ページに入力します。  
-  ![スクリーンショット](images/confirm.png)
+   ![スクリーンショット](images/confirm.png)
 5. プラグインを使用するすべての組織のアクセスを許可します。
-  <img src={require("./images/grant.png").default} width={"200px"}  alt="Screen shot"/>
+
+   <img src={require("./images/grant.png").default} width={"200px"} alt="Screen shot" />
 
 6. `S: トークンを正常に保管しました！`を表示されたら完了です。
 
@@ -64,17 +64,16 @@ GitHub OAuth トークンをすでに持っている場合は、方法 2 を行�
 
 ### `E: エラーが発生しました。`と表示される。
 
-GitHubのサーバに接続できませんでした。しばらくしてからもう一度お試しください。
+GitHub のサーバに接続できませんでした。しばらくしてからもう一度お試しください。
 
 ### `E: エラーが発生しました。: Server response with ...`と表示される。
 
-GitHubのサーバから不正な応答がありました。もう一度お試しください。
+GitHub のサーバから不正な応答がありました。もう一度お試しください。
 
 ### `E: エラーが発生しました。：有効期限が切れています。`と表示される。
 
-KPMが発行した一時トークンが失効しました。 もう一度手順を最初から行ってください。
+KPM が発行した一時トークンが失効しました。 もう一度手順を最初から行ってください。
 
 ### `E: エラーが発生しました。：キャンセルされました。`と表示される。
 
 ユーザが認証をキャンセルしました。もう一度お試しください。
-
