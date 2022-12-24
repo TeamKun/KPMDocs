@@ -1,0 +1,39 @@
+name: Tag new release
+
+on:
+  push:
+    branches:
+      - production
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  tagging:
+    runs-on: ubuntu-latest
+    if: jobs.deploy.result == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get package version
+        id: package-version
+        run: echo "::set-output name=version::$(node -p -e "require('./package.json').version")"
+      - name: Get tag version and compare versions
+        id: tag-version
+        run: |
+          echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+          version=$(node -p -e "require('./package.json').version")
+          tag=$(git describe --tags --abbrev=0)
+          if [[ $version == $tag ]]; then
+            echo "::set-output name=compare::true"
+          else
+            echo "::set-output name=compare::false"
+          fi
+      - name: Create tag if versions have upgraded
+        if: steps.tag-version.outputs.compare == 'false'
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a ${{ steps.package-version.outputs.version }} -m "Production release ${{ steps.package-version.outputs.version }}"
+          git push --follow-tags

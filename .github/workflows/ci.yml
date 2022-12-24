@@ -58,4 +58,4 @@ jobs:
         with:
           sarif_file: results.sarif
       - name: Check formatting
-        run: npm check:format
+        run: npm run check:format
