@@ -14,9 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "format": "prettier --write --cache .",
-    "lint": "eslint --cache .",
-    "check:format": "prettier --cache --check .",
-    "check:lint": "run-s lint"
+    "check:format": "prettier --cache --check ."
   },
   "homepage": "https://github.com/TeamKUN/KPMDocs",
   "dependencies": {

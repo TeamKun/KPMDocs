@@ -51,11 +51,5 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm install
-      - name: Lint
-        run: npm run lint:sarif
-      - name: Upload lint results to GitHub repository
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: results.sarif
       - name: Check formatting
         run: npm run check:format
