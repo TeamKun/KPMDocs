@@ -109,7 +109,7 @@ const config = {
               },
               {
                 label: `KPM を使い始める`,
-                to: "/docs/getting-started",
+                to: "/docs/use-kpm/getting-started",
               },
             ],
           },
