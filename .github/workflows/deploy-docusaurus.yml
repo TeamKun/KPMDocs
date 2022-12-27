@@ -43,6 +43,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: './build/'
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
       - name: Update GitHub Deployment
         if: success()
         uses: chrnorm/deployment-status@v2
