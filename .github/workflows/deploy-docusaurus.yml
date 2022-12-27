@@ -14,7 +14,7 @@ permissions:
   pages: write
   id-token: write
   deployments: write
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
           token: ${{ github.token }}
           environment-url: https://kpm.kunlab.org
           environment: production
-          status: in_progress
+          initial-status: in_progress
 
       - uses: actions/setup-node@v2
         with:
@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './build/'
+          path: "./build/"
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
       - name: Update GitHub Deployment
