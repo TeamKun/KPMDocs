@@ -41,7 +41,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.ts"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/TeamKUN/KPMDocs/edit/main/",
+          editUrl: "https://github.com/TeamKUN/KPMDocs/edit/develop/",
 
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -49,11 +49,25 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        blog: false,
       },
     ],
   ],
 
-  plugins: [require.resolve("docusaurus-plugin-image-zoom")],
+  plugins: [
+    require.resolve("docusaurus-plugin-image-zoom"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/docs/home",
+            from: ["/docs/"],
+          },
+        ],
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -158,6 +172,16 @@ const config = {
         background: {
           light: "rgba(0, 0, 0, 0.6)",
           dark: "rgba(0, 0, 0, 0.6)",
+        },
+      },
+      colorMode: {
+        defaultMode: "dark",
+        respectPrefersColorScheme: false,
+      },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+          hideable: true,
         },
       },
     }),
