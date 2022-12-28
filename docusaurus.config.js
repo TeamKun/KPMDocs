@@ -174,6 +174,10 @@ const config = {
           dark: "rgba(0, 0, 0, 0.6)",
         },
       },
+      colorMode: {
+        defaultMode: 'dark',
+        respectPrefersColorScheme: false,
+      },
       docs: {
         sidebar: {
           autoCollapseCategories: true,
