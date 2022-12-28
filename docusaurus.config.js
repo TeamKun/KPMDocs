@@ -49,11 +49,25 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        blog: false
       },
     ],
   ],
 
-  plugins: [require.resolve("docusaurus-plugin-image-zoom")],
+  plugins: [
+    require.resolve("docusaurus-plugin-image-zoom"),
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/docs/home",
+            from: ["/docs/"],
+          },
+        ]
+      },
+    ]
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -159,6 +173,12 @@ const config = {
           light: "rgba(0, 0, 0, 0.6)",
           dark: "rgba(0, 0, 0, 0.6)",
         },
+      },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+          hideable: true,
+        }
       },
     }),
 }
