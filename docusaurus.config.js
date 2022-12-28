@@ -49,7 +49,7 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
-        blog: false
+        blog: false,
       },
     ],
   ],
@@ -64,9 +64,9 @@ const config = {
             to: "/docs/home",
             from: ["/docs/"],
           },
-        ]
+        ],
       },
-    ]
+    ],
   ],
 
   themeConfig:
@@ -175,14 +175,14 @@ const config = {
         },
       },
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
         respectPrefersColorScheme: false,
       },
       docs: {
         sidebar: {
           autoCollapseCategories: true,
           hideable: true,
-        }
+        },
       },
     }),
 }
