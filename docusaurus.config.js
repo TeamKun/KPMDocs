@@ -73,8 +73,8 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       announcementBar: {
-        id: 'announcementBar-1',
-        content: `✨ もし KPM が気に入ったなら、 GitHub で <a href="https://github.com/TeamKUN/TeamKUNPluginManager">Star</a> をしてください！`
+        id: "announcementBar-1",
+        content: `✨ もし KPM が気に入ったなら、 GitHub で <a href="https://github.com/TeamKUN/TeamKUNPluginManager">Star</a> をしてください！`,
       },
       navbar: {
         title: "TeamKUNPluginManager",
