@@ -49,3 +49,16 @@
 
   background-size: cover;
 }
+
+[class^="announcementBar_"] {
+  font-weight: bold;
+}
+
+[data-theme="dark"] [class^="announcementBar_"] {
+  background: repeating-linear-gradient(45deg, #e7cad9, #e7cad9 15px, #dd99c0 15px, #dd99c0 30px);
+}
+
+[data-theme="light"] [class^="announcementBar_"] {
+  color: #000;
+  background: repeating-linear-gradient(45deg, #95ceb1, #95ceb1 15px, #6dc292 15px, #6dc292 30px);
+}
