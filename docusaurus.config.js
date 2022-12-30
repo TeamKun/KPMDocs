@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/vsDark")
 const config = {
   title: "TeamKUNPluginManager",
   tagline: "最も高度な PaperMC プラグイン管理ツール",
-  url: "https://kpm.kunmc.lab/",
+  url: "https://kpm.kunlab.org/",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
