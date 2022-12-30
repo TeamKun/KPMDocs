@@ -129,6 +129,14 @@ const config = {
                 label: `KPM を使い始める`,
                 to: "/docs/use-kpm/getting-started",
               },
+              {
+                label: `コマンド一覧`,
+                to: "/docs/use-kpm/commands",
+              },
+              {
+                label: `KPM 用語集`,
+                to: "/docs/expressions",
+              },
             ],
           },
           {
