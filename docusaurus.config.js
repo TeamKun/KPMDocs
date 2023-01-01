@@ -45,6 +45,15 @@ const config = {
 
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'KPM v3 (WIP)',
+            },
+            "v2": {
+              label: 'KPM v2',
+            }
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -102,6 +111,11 @@ const config = {
             to: "/docs/expressions",
             position: "left",
             label: "用語集",
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownActiveClassDisabled: true,
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
