@@ -11,10 +11,11 @@ type DeprecationProps = {
 
 const Deprecation: React.FC<DeprecationProps> = ({ message, link, version, removeMode }) => {
   const versionString = version ?? "次のリリース"
-  const messageBody =
-    message ?? removeMode
-      ? `この機能は KPM ${versionString} で**<strong>削除</strong>**されます。`
-      : `この機能は KPM ${versionString} から非推奨になります。`
+  const messageBody = message
+    ? message
+    : removeMode
+    ? `この機能は KPM ${versionString} で**<strong>削除</strong>**されます。`
+    : `この機能は KPM ${versionString} から非推奨になります。`
   const linkString = link ? `詳細は <a href="${link}">${link}</a> を参照してください。` : ""
 
   const admonitionType = removeMode ? "caution" : "note"

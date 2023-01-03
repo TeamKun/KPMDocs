@@ -45,14 +45,14 @@ const config = {
 
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          lastVersion: 'current',
+          lastVersion: "current",
           versions: {
             current: {
-              label: 'KPM v3 (WIP)',
+              label: "KPM v3 (WIP)",
             },
-            "v2": {
-              label: 'KPM v2',
-            }
+            v2: {
+              label: "KPM v2",
+            },
           },
         },
         theme: {
@@ -113,8 +113,8 @@ const config = {
             label: "用語集",
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
+            type: "docsVersionDropdown",
+            position: "right",
             dropdownActiveClassDisabled: true,
           },
           {

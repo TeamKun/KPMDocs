@@ -1,5 +1,6 @@
 import Deprecation from "/src/components/Deprecation"
 import BelowDocument from "/src/components/BelowDocument"
+import Since from "../../../src/components/Since"
 
 # コマンド
 
@@ -56,9 +57,27 @@ KPM の\*\* **すべての** \*\* コマンドはこのコマンドのサブコ�
 
 不要なプラグインの条件は、以下のとおりです；
 
-- KPM が（他のプラグインの依存関係として）自動でインストールした。
-- 依存されているプラグインがアンインストールされている（サーバに存在しない）。
-- 上記の条件を満たすプラグインの依存関係であり、かつそれが上記の条件を満たす。
+1. 必須 - KPM が依存関係として自動でインストールした。
+2. 必須 - 依存されているプラグインが依存関係としてマークされている、または存在しない。
+3. 任意 - プラグインと、その依存関係のプラグインも、上記の条件を満たしている。
+
+<details>
+  <summary>不要なプラグインの例</summary>
+
+例えば、あなたのサーバには、以下のプラグインがインストールされているとしましょう。
+
+- `PluginA` は依存関係としてマークされており、PluginB に依存しています。 + `PluginB` は依存関係としてマークされています。
+- `PluginC` は依存関係としてマークされていませんが、PluginD に依存しています。
+- `PluginD` は依存関係としてマークされていません。
+
+このとき、
+
+- `PluginA` は、 `PluginB` に依存されていますが、 `PluginB` は依存関係としてマークされているため削除されます。
+- `PluginB` は、`PluginA` に依存していますが、 `PluginA` は依存関係としてマークされているため削除されます。
+- `PluginC` は、は依存関係としてマークされていないため削除されません。
+- `PluginD` は、`PluginC` に依存していますが、 `PluginC` は依存関係としてマークされていないため削除されません。
+
+</details>
 
 #### エイリアス
 
@@ -73,11 +92,16 @@ _\(なし)_
 - `kpm.autoremove`
 - `kpm.*`
 
+#### スクリーンショット
+
+![Removable plugin found#300x](./images/autoremove/success.png)  
+![Plugin not found#300x](./images/autoremove/notfound.png)
+
 ---
 
 ### <kbd>clean</kbd>
 
-削除され、サーバに存在しないプラグインのデータ・フォルダとその中身を削除します。
+削除された、サーバに存在しないプラグインのデータ・フォルダとその中身を削除します。
 
 :::tip
 
@@ -98,28 +122,18 @@ _\(なし)_
 - `kpm.clean`
 - `kpm.*`
 
----
+#### スクリーンショット
 
-### <kbd>export</kbd>
-
-プラグインの設定ファイルとダウンロードリンクを含んだファイルを生成します。
-
-<BelowDocument docId="use-kpm/commands/export" />
+![Plugin datafolder cleaned#300x](./images/clean/success.png)  
+![Plugin folder not found#300x](./images/clean/notfound.png)
 
 ---
 
-### <kbd>fix</kbd>
+### <kbd>debug</kbd>
 
-KPM が依存関係ツリーの構築に失敗した場合に、依存関係ツリーを再構築します。
+KPM のデバッグ用コマンドです。
 
-:::info
-
-このコマンドは、KPM が依存関係ツリーの構築に失敗した場合にのみ使用できます。  
-使用する場面は適宜通知されます。
-
-:::
-
-<Deprecation version="v3" removeMode />
+<Deprecation message={"このコマンドはデバッグ用であり、将来的に削除される可能性があります。"} />
 
 #### エイリアス
 
@@ -127,11 +141,11 @@ _\(なし)_
 
 #### コマンド構文
 
-- `fix`\(引数なし)
+- `debug ...`
 
 #### 権限
 
-- `kpm.fix`
+- `kpm.debug`
 - `kpm.*`
 
 ---
@@ -146,7 +160,7 @@ _\(なし)_
 
 ### <kbd>install</kbd>
 
-プラグインを新規[インストール](/docs/expressions/README/#インストール)します。
+プラグインを新規[インストール](/docs/expressions/#インストール)します。
 
 <BelowDocument docId="use-kpm/commands/install" />
 
@@ -162,26 +176,18 @@ KPM と GitHub の連携を行います。
 
 ### <kbd>status</kbd>
 
-KPM の動作状態を表示します。
+:::tip
 
-#### エイリアス
+このコマンドは <kbd>[version](#version)</kbd> コマンドに移行されました。  
+そのため、このコマンドを実行すると <kbd>[version](#version)</kbd> コマンドが実行されます。
 
-_\(なし)_
-
-#### コマンド構文
-
-- `status`\(引数なし)
-
-#### 権限
-
-- `kpm.status`
-- `kpm.*`
+:::
 
 ---
 
 ### <kbd>uninstall</kbd>
 
-プラグインをサーバから削除\([アンインストール](/docs/expressions/README/#アンインストール))します。
+プラグインをサーバから削除\([アンインストール](/docs/expressions/#アンインストール))します。
 
 <BelowDocument docId="use-kpm/commands/uninstall" />
 
@@ -189,7 +195,7 @@ _\(なし)_
 
 ### <kbd>update</kbd>
 
-KPM のプラグイン定義ファイルを更新します。
+KPM のエイリアス定義ファイルを更新します。
 
 #### エイリアス
 
@@ -203,3 +209,76 @@ _\(なし)_
 
 - `kpm.update`
 - `kpm.*`
+
+#### スクリーンショット
+
+![Updated#700x](./images/update/success.png)
+
+---
+
+### <kbd>upgrade</kbd>
+
+サーバのプラグインを最新のバージョンにアップグレードします。
+
+<Since version="v3" newMode />
+
+<BelowDocument docId="use-kpm/commands/upgrade" />
+
+---
+
+### <kbd>upgrade-kpm</kbd>
+
+KPM を最新のバージョンにアップグレードします。
+
+<Since version="v3" newMode />
+
+:::warning
+
+このコマンドは、アップグレード完了時に内部でサーバをリロードします。  
+リロード後、サーバのプラグインが正常に動作しない場合がありますが、適宜再起動してください。
+
+:::
+
+#### エイリアス
+
+_\(なし)_
+
+#### コマンド構文
+
+- `upgrade-kpm`\(引数なし)
+
+#### 権限
+
+- `kpm.upgrade-kpm`
+- `kpm.*`
+
+#### スクリーンショット
+
+![Pending#300x](./images/upgrade-kpm/pending.png)  
+![Upgrading#300x](./images/upgrade-kpm/upgrading.png)
+
+---
+
+### <kbd>version</kbd>
+
+KPM のバージョンやライセンス、ステータスを表示します。
+
+<Since version="v3" newMode />
+
+#### エイリアス
+
+- `v`
+- `status`
+
+#### コマンド構文
+
+- `version`\(引数なし)
+
+#### 権限
+
+- `kpm.version`
+- `kpm.*`
+
+#### スクリーンショット
+
+![Version#300x](./images/version/success.png)

@@ -10,6 +10,24 @@ KPM と GitHub を連携します。
 
 KPM と GitHub を連携します。
 
+:::note
+
+`register` は、もともと [GitHub の OAuth トークン](/docs/expressions#github-oauth-トークン)を登録するだけのコマンドだったために、
+この名前になっています。  
+しかし、現在は、トークンを生成する機能も含まれているためコマンド名の変更が検討されています。
+
+:::
+
+<BelowDocument docId="use-kpm/getting-started/link-github" />
+
+### エイリアス
+
+_なし_
+
+### コマンド構文
+
+- `register \[GitHub OAuth トークン]`
+
 第一引数には [GitHub OAuth トークン](/docs/expressions#github-oauth-トークン)を指定できます。
 
 :::info
@@ -19,25 +37,13 @@ KPM と GitHub を連携します。
 
 :::
 
-:::note
-
-`register` は、もともと [GitHub の OAuth トークン](/docs/expressions#github-oauth-トークン)を登録するだけのコマンドだったために、
-この名前になっています。  
-しかし、現在は、トークンを生成する機能も含まれているため、コマンド名の変更が検討されています。
-
-:::
-
-<BelowDocument docId="use-kpm/getting-started/link-github" />
-
-#### エイリアス
-
-_なし_
-
-#### コマンド構文
-
-- `register \[GitHub OAuth トークン]`
-
-#### 権限
+### 権限
 
 - `kpm.register`
 - `kpm.*`
+
+### スクリーンショット
+
+![Token success#x200](images/register/success.png)
+![Cancelled#x200](images/register/cancel.png)
+![Manually register#830x](images/register/manual-register.png)
