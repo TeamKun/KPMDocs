@@ -1,4 +1,4 @@
-import DocCard from "@theme/DocCard"
+import BelowDocument from "../../src/components/BelowDocument";
 
 # KPM 用語集
 
@@ -63,40 +63,20 @@ GitHub リリースは、[GitHub](#github) リポジトリ上で公開されて�
 KPM が[クエリ](#クエリ-クエリ文字列)からプラグインを一意に特定し、プラグインの情報を取得するまでの一連の処理のことです。  
 また、[プラグインリゾルバ](#プラグインリゾルバ) と呼ばれるモジュールでプラグインを解決します。
 
-### [クエリ](/docs/features/query) \(クエリ文字列)
+### [クエリ](../use-kpm/features/query) \(クエリ文字列)
 
 クエリは、 KPM がプラグインを解決するために使用する文字列です。
-詳しくは以下を参照してください。
+<BelowDocument docId="use-kpm/features/query" />
 
-<DocCard
-  item={{
-    type: "link",
-    label: "クエリ文字列とは？",
-    // docId: "expressions/query",
-    href: "/docs/expressions/query",
-  }}
-/>
+### [エイリアス](../use-kpm/features/alias)
 
-### プラグインリゾルバ
+エイリアスは、プラグインやクエリに別名をつけられる機能です。
+<BelowDocument docId="use-kpm/features/alias/README" />
+
+### [プラグインリゾルバ](../use-kpm/features/resolver)
 
 プラグインリゾルバは、 KPM がプラグインを解決するために使用するモジュールです。
-現在は、以下のプラグインリゾルバが存在します。
-
-- GitHub リゾルバ
-
-  `https://github.com/TemKun/StealPlugin` や、 `TeamKun/StealPlugin` などのクエリを解決します。
-
-- Spigot MC リゾルバ
-
-  `https://www.spigotmc.org/resources/stealplugin.12345` などのクエリを解決します。
-
-- エイリアスリゾルバ
-
-  `u` など、予め定義されたエイリアスのクエリを解決します。
-
-- CurseForge リゾルバ
-
-  `https://www.curseforge.com/minecraft/mc-mods/stealplugin` や、 `https://dev.bukkit.org/projects/stealplugin` などのクエリを解決します。
+<BelowDocument docId="use-kpm/features/resolver" />
 
 ### リロード
 
@@ -120,7 +100,7 @@ KPM がプラグインをサーバーにサーバに追加する一連の流れ�
 
 主なインストールの流れは以下の通りです：
 
-1. [プラグインを解決](#プラグイン解決)する
+1. [プラグインを解決](#プラグイン解決プラグインリゾルブ)する
 2. プラグインの jar ファイルをダウンロードする
 3. プラグインの依存関係を解決する
 4. 依存関係の jar ファイルをダウンロードする

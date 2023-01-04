@@ -23,6 +23,7 @@ const BelowDocument: React.FC<BelowDocumentProps> = ({ docId, message, small }) 
       }
 
   const displayMessage = message ? message : "詳しくは以下のドキュメントを参照してください："
+  const path = "/docs/" + (doc.id.endsWith("/README") ? doc.id.slice(0, -7) : doc.id)
 
   return (
     <>
@@ -33,7 +34,7 @@ const BelowDocument: React.FC<BelowDocumentProps> = ({ docId, message, small }) 
             type: "link",
             label: doc.title,
             docId: doc.id,
-            href: "/docs/" + doc.id,
+            href: path,
           }}
         />
       </div>
