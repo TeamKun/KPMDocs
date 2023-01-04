@@ -3,12 +3,12 @@ import DocCard from "@theme/DocCard"
 // @ts-ignore
 import { useDocById } from "@docusaurus/theme-common/internal"
 
-type BelowDocumentProps = {
+type RelatedFeatureProps = {
   docNames: string[]
   headerLevel?: number
 }
 
-const RelatedFeatures: React.FC<BelowDocumentProps> = ({ docNames, headerLevel = 3 }) => {
+const RelatedFeatures: React.FC<RelatedFeatureProps> = ({ docNames, headerLevel = 3 }) => {
   const docs = docNames.map((docName) => {
     const doc = useDocById("use-kpm/features/" + docName)
     if (!doc) {
@@ -20,6 +20,11 @@ const RelatedFeatures: React.FC<BelowDocumentProps> = ({ docNames, headerLevel =
   const Header = `h${headerLevel}` as keyof JSX.IntrinsicElements
 
   const DocCards = docs.map((doc) => {
+      let path = "/docs/" + doc.id
+      if (path.endsWith("/README")) {
+          path = path.slice(0, -6)
+      }
+
     return (
       <span style={{ display: "inline-block", width: "250px", marginRight: "1rem" }}>
         <DocCard
@@ -27,7 +32,7 @@ const RelatedFeatures: React.FC<BelowDocumentProps> = ({ docNames, headerLevel =
             type: "link",
             label: doc.title,
             docId: doc.id,
-            href: "/docs/" + doc.id,
+            href: path,
           }}
         />
       </span>
