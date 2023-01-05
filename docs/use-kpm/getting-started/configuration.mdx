@@ -1,0 +1,272 @@
+---
+sidebar_position: 3
+---
+
+import BelowDocument from "../../../src/components/BelowDocument";
+
+# KPM を設定する
+
+KPM をカスタマイズして、更に便利に使用します。
+
+---
+
+## 概要
+
+KPM では、設定ファイルによるカスタマイズが可能です。  
+ニーズ別の設定は[こちら](#ニーズ別設定概要)を、設定の一覧は[こちら](#設定一覧)を参照してください。
+
+## KPM の設定ファイル
+
+KPM の設定ファイルは `plugins/TeamKUNPluginManager/config.yml` の１つのみです。シンプル！
+
+---
+
+## 設定一覧
+
+### \[パス] データベース・パスの設定
+
+各ファイルのパスを設定します。
+基本的にはデフォルトのままで問題ありません。
+
+:::tip
+
+作業ディレクトリは、 KPM のデータフォルダ（例： `plugins/TeamKUNPluginManager` ）です。
+
+:::
+
+:::info
+
+データベースは、 [SQLite3](https://www.sqlite.org/index.html) を使用しています。  
+[Hikari CP](https://github.com/brettwooldridge/HikariCP) に感謝！
+
+:::
+
+---
+
+#### `paths`.`database`.`metadata`
+
+プラグイン固有のメタデータを管理するデータベースのパスを設定します。
+
+:::warning
+このファイルは、他のサーバの KPM と共有しないでください。
+:::
+
++ デフォルト値： `metadata.db`
++ 型： `String`
+
+---
+
+#### `paths`.`database`.`aliases`
+
+プラグインのエイリアスを管理するデータベースのパスを設定します。
+
++ デフォルト値： `aliases.db`
++ 型： `String`
+
+---
+
+### \[パス] トークン・パスの設定
+
+KPM と GitHub を連携する際に使用される認証トークン（パスワードのようなもの）を設定します。  
+
+<BelowDocument docId="use-kpm/getting-started/link-github" message="GitHub との連携については、以下のドキュメントを参照してください。" small />
+
+---
+
+#### `paths`.`token`.`body`
+
+トークン自体が保存されるファイルのパスを設定します。  
+このファイルは [AES](https://ja.wikipedia.org/wiki/Advanced_Encryption_Standard) で暗号化されています。
+
+:::warning
+
+このファイルの内容を流出させないでください。  
+このファイルが流出した場合、あなたの GitHub アカウントに悪意のある人がアクセスする可能性があります。
+
+:::
+
++ デフォルト値： `token.dat`
++ 型： `String`
+
+---
+
+#### `paths`.`token`.`decryptionKey`
+
+トークンを復号化するためのキーが保存されるファイルのパスを設定します。
+
+:::warning
+
+このファイルの内容を流出させないでください。  
+このファイルが流出した場合、あなたの GitHub アカウントに悪意のある人がアクセスする可能性があります。
+
+:::
+
+:::tip
+
+このファイルの安全性を守るために、権限は `600`(`rw-------`) に設定することをおすすめします。
+
+:::
+
++ デフォルト値： `token_key.dat`
++ 型： `String`
+
+---
+
+### \[HTTP] HTTP リクエストの設定
+
+KPM が発行する HTTP リクエストをカスタマイズします。
+
+#### `http`.`userAgent`
+
+HTTP リクエストのヘッダーである、 `User-Agent` を設定します。  
+
+:::tip
+`%productName%` と `%productVersion%` は、それぞれ KPM の名前とバージョンに置き換えられます。
+:::
+
+:::info
+このデフォルト値は、一時間に及ぶ試行錯誤で、最も DDoS プロテクタにブロックされない値を見つけました！
+:::
+
++ デフォルト値： `Mozilla/8.10 (X931; Peyantu; Linux x86_64) PeyangWebKit/114.514(KUN, like Gacho) %productName%/%productVersion%`
++ 型： `String`
+
+---
+
+#### `http`.`timeout`
+
+HTTP リクエストのタイムアウトを設定します。この値は、ミリ秒で指定します。
+
++ デフォルト値： `10000`
++ 型： `Integer`
+
+---
+
+#### `http`.`maxRedirects`
+
+HTTP リクエストのリダイレクトの最大数を設定します。
+
+:::tip
+
+この値を `0` に設定するとリダイレクトが無効になります。 また、 `-1` に設定すると無限にリダイレクトします。
+
+:::
+
++ デフォルト値： `15`
++ 型： `Integer`
+
+---
+
+### \[解決] GitHub の組織名の省略
+
+#### `resolve`.`githubUsers`
+
+この設定に記述した組織名は、[クエリの解決](/docs/expressions/#プラグイン解決プラグインリゾルブ) で省略できるようになります。
+組織名の省略や、 GitHub の優越については、[こちら](/docs/use-kpm/features/query#github-の優越)を参照してください。
+
++ デフォルト値： `[TeamKUN]`
++ 型： `String[]`\(`Array<String>`)
+
+---
+
+### \[解決] エイリアスの設定
+
+[エイリアス](/docs/use-kpm/features/alias)に関する設定です。
+
+#### `resolve`.`aliases`.`sources`
+
+エイリアスを定義する データセット（エイリアス定義ファイル）のリモートを設定します。  
+この設定は、オブジェクトの配列で記述します。
+
+| キー | 型 | 説明 |
+|:--|:--|:--|
+| `name` | `String` | エイリアス定義ファイルの名前を設定します。この名前は`^[a-zA-Z0-9_\s]+$`の正規表現にマッチする必要があります。 |
+| `url` | `String` | エイリアス定義ファイルのリモートを設定します。 |
+
++ デフォルト値：
+  - `name`: `TeamKun HUB`
+  - `url`: `https://raw.githubusercontent.com/TeamKun/PluginManagerRepository/main/database.json`
++ 型： `Object{name: String, url: String}[]`\(`Array<Object{name: String, url: String}>`)
+
+### 除外設定
+
+KPM による管理や、インストーラの操作から除外するプラグインを設定します。  
+
+#### `exclude`.`pluginNames`
+
+除外するプラグインの名前です。
+
++ デフォルト値： `[]`
++ 型： `String[]`\(`Array<String>`)
+
+---
+
+### \[製品] プロダクトの設定
+
+KPM の製品に関する設定です。  
+
+:::warning
+
+この設定や、これらの子は、変更しないでください。
+
+:::
+
+#### `kpm`
+
+KPM のバージョンを設定します。
+
++ デフォルト値： `<KPM のバージョン>`
++ 型： `SemanticVersion`
+
+---
+
+## ニーズ別設定概要
+
+KPM の使用場面や、環境によってのオススメ設定を紹介します。
+
+### ケース：リクエストが CloudFlare 等の DDoS プロテクタにブロックされる
+
+KPM のリクエストは、デフォルトでは KPM オリジナルのユーザーエージェントを使用します。  
+全く、絶対に起こり得ないとは思いますが、もし、もしブロックされた場合は、以下のような代替ユーザエージェントをお試しください。
+
++ `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36`
++ `Mozilla/5.0 (Macintosh; Intel Mac OS X 13.1; rv:108.0) Gecko/20100101 Firefox/108.0`
++ `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54`
+
+### ケース：ローカルの複数のサーバでパフォーマンスを最適化したい
+
+KPM は、デフォルトでは各サーバごとにエイリアスのデータベースやトークンの設定を持っています。
+しかし、複数のサーバで同じ設定を使用する場合は、以下のように設定を共有することができます。
+
+1. KPM の設定を共有して保存するディレクトリを作成します。
+  ```sh
+  pwd
+  # /home/user/servers/server1/
+  mkdir /home/user/servers/kpm-shared
+  cd /home/user/servers/kpm-shared
+  ```
+2. 各サーバの設定ファイルを以下のように設定します。 
+  ```yaml title="/home/user/servers/*/kpm.yml"
+  # ...
+  paths:
+    # ...
+    database:
+      # highlight-next-line
+      aliases: "../kpm-shared/aliases.json"
+    #...
+    token:
+      # ...
+      # highlight-next-line
+      body: "../kpm-shared/token.dat"
+      # highlight-next-line
+      decryptionKey: "../kpm-shared/token_key.dat"
+  ```
+3. サーバを起動します。
+  ```sh
+  cd /home/user/servers/server1/
+  ./start.sh
+  cd /home/user/servers/server2/
+  ./start.sh
+  # ...
+  ```
+

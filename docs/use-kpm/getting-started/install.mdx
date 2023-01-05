@@ -1,9 +1,8 @@
-import DocCard from "@theme/DocCard"
+import BelowDocument from "@site/src/components/BelowDocument";
 
 # KPM をインストールする
 
-このページでは、KPM を新規インストールする方法を説明しています。
-また、KPM を使用するためには、有効な GitHub アカウントが必要です。
+このページでは、KPM を新規にインストールします。
 
 ---
 
@@ -21,6 +20,8 @@ KPM は、 [PaperMC](https://www.papermc.io/) 以外のサーバ(例：Spigot, B
 [PaperMC](https://www.papermc.io/) への移行ガイドは[こちら](https://docs.papermc.io/paper/migration)から参照してください。
 
 :::
+
+## KPM をサーバに追加する
 
 ### ステップ 1：最新のプラグイン・アーティファクト をダウンロードする
 
@@ -44,19 +45,20 @@ KPM は、PlugMan 等を使用した動的再読み込みには対応してい�
 
 :::
 
-### ステップ 4：KPM と GitHub を連携する
+## KPM と GitHub を連携する
 
-以下のページを参照してください。
+KPM を使用するには、 GitHub と連携する必要があります。
 
-<DocCard
-  item={{
-    type: "link",
-    label: "KPM と GitHub を連携する",
-    docId: "use-kpm/getting-started/link-github",
-    href: "/docs/use-kpm/getting-started/link-github",
-  }}
-/>
+### ステップ 1：チュートリアルに従って、GitHub と連携する
 
-### ステップ 5：プラグイン定義ファイルをアップデートする \[任意]
+<BelowDocument docId="use-kpm/getting-started/link-github" />
+
+### ステップ ２：プラグイン定義ファイルをアップデートする
 
 <kbd>/kpm update</kbd> コマンドを実行して、プラグイン定義ファイルをアップデートします。これにより、 KPM のプラグイン解決精度が上がります。
+
+## KPM を設定する
+
+KPM は、初期状態でも使用できますが、いくつかの設定を行うことで、より便利に使用できます。
+
+<BelowDocument docId="use-kpm/getting-started/configuration" />
