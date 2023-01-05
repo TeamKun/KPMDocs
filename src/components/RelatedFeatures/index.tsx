@@ -20,10 +20,10 @@ const RelatedFeatures: React.FC<RelatedFeatureProps> = ({ docNames, headerLevel 
   const Header = `h${headerLevel}` as keyof JSX.IntrinsicElements
 
   const DocCards = docs.map((doc) => {
-      let path = "/docs/" + doc.id
-      if (path.endsWith("/README")) {
-          path = path.slice(0, -6)
-      }
+    let path = "/docs/" + doc.id
+    if (path.endsWith("/README")) {
+      path = path.slice(0, -6)
+    }
 
     return (
       <span style={{ display: "inline-block", width: "250px", marginRight: "1rem" }}>
