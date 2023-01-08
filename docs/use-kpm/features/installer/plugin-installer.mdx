@@ -1,4 +1,5 @@
-import BelowDocument from "../../../../src/components/BelowDocument";
+import BelowDocument from "@site/src/components/BelowDocument"; 
+import RelatedFeatures from "../../../../src/components/RelatedFeatures";
 
 # プラグインインストーラ
 
@@ -16,9 +17,21 @@ import BelowDocument from "../../../../src/components/BelowDocument";
 ## 使用方法
 
 プラグインをインストールするには、<kbd>/kpm install <クエリ></kbd> を実行します。  
+このコマンドは、対話型のインストーラを呼び出します。
 
-<BelowDocument docId="use-kpm/commands/install" message="コマンドの詳細は以下のドキュメントを参照してください。" small/>
-<br />
-<BelowDocument docId="use-kpm/features/query" message="また、クエリについては以下のドキュメントを参照してください。" small/>
+---
 
-## 
+## インストールの流れ
+
+インストールの流れは以下の通りです。
+
+### ステップ１：クエリを入力する
+
+インストールするプラグインのクエリを入力し、インストーラを起動します。この場合、
+
+
+---
+
+## 関連項目
+
+<RelatedFeatures docNames={["use-kpm/commands/install", "query"]} headerLevel={0} />

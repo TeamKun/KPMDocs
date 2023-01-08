@@ -10,10 +10,14 @@ type RelatedFeatureProps = {
 
 const RelatedFeatures: React.FC<RelatedFeatureProps> = ({ docNames, headerLevel = 3 }) => {
   const docs = docNames.map((docName) => {
-    const doc = useDocById("use-kpm/features/" + docName)
-    if (!doc) {
-      throw new Error(`Document with id ${docName} not found`)
+    let doc;
+    try {
+      doc = useDocById("use-kpm/features/" + docName)
     }
+    catch (e) {
+      doc = useDocById(docName)
+    }
+
     return doc
   })
 
