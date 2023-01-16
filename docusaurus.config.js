@@ -76,6 +76,15 @@ const config = {
         ],
       },
     ],
+      [
+        "@docusaurus/plugin-content-docs",
+        {
+            id: "dev",
+            path: "dev-docs",
+            routeBasePath: "dev-docs",
+            sidebarPath: require.resolve("./sidebars.ts"),
+        }
+      ]
   ],
 
   themeConfig:
@@ -111,6 +120,11 @@ const config = {
             to: "/docs/expressions",
             position: "left",
             label: "用語集",
+          },
+          {
+            to: "/dev-docs/home",
+            position: "left",
+            label: "開発者向け",
           },
           {
             type: "docsVersionDropdown",
