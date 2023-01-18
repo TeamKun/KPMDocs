@@ -1,7 +1,7 @@
 import React from "react"
 import DocCard from "@theme/DocCard"
 // @ts-ignore
-import { useDocById } from "@docusaurus/theme-common/internal"
+import { useDocById, useLocalPathname } from "@docusaurus/theme-common/internal"
 
 type RelatedFeatureProps = {
   docNames: string[]
@@ -24,10 +24,7 @@ const RelatedFeatures: React.FC<RelatedFeatureProps> = ({ docNames, headerLevel 
   const Header = `h${headerLevel}` as keyof JSX.IntrinsicElements
 
   const DocCards = docs.map((doc) => {
-    let path = "/docs/" + doc.id
-    if (path.endsWith("/README")) {
-      path = path.slice(0, -6)
-    }
+    let path = useLocalPathname().split("/").slice(0, -1).join("/") + "/" + doc.id
 
     return (
       <span style={{ display: "inline-block", width: "250px", marginRight: "1rem" }}>
