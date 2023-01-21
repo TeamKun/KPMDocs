@@ -1,0 +1,45 @@
+.javadocView h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px;
+}
+
+.javadocView h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.javadocCard {
+    display: flex;
+    border: 1px solid var(--ifm-color-emphasis-500);
+    border-radius: 5px;
+    padding: 10px 10px 0;
+    align-items: center;
+
+    max-width: 50%;
+    margin: 1rem auto auto;
+}
+
+.javadocLink {
+    /* right */
+    margin-left: auto;
+    text-align: right;
+}
+
+.releaseDate {
+    font-size: 0.7rem;
+    color: var(--ifm-color-emphasis-900);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.javadocsFooter {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.javadocsFooter p {
+    font-style: italic;
+    font-size: 0.8rem;
+}

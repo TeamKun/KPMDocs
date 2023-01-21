@@ -137,6 +137,11 @@ const config = {
             label: "ダウンロード",
           },
           {
+            href: "/javadoc",
+            position: "right",
+            label: "Javadoc"
+          },
+          {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager",
             position: "right",
             className: "icon-link i-github",

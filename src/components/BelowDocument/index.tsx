@@ -25,7 +25,7 @@ const BelowDocument: React.FC<BelowDocumentProps> = ({ docId, message, small , a
       }
 
   const displayMessage = message ? message : "詳しくは以下のドキュメントを参照してください："
-  const path = useLocalPathname().split("/").slice(0, -1).join("/") + "/" + (doc.id.endsWith("/README") ? doc.id.slice(0, -7) : doc.id) +
+  const path = "/" + useLocalPathname().split("/").slice(1, 2).join("/") + "/" + (doc.id.endsWith("/README") ? doc.id.slice(0, -7) : doc.id) +
     (anchor ? "#" + anchor : "")
 
     return (

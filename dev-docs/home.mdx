@@ -2,22 +2,28 @@
 sidebar_position: 1
 ---
 
+import BelowDocument from "../src/components/BelowDocument";
+
 # KPM 開発者ポータル
 
 このドキュメントは、プラグイン開発者向けに提供されている API や、特別な機能を利用するための情報を提供しています。  
 一般に KPM を使用する場合は、[こちら](/docs/use-kpm) のドキュメントを参照してください。
+
+## チュートリアル
+
+<BelowDocument docId="api-docs/getting-started" message="KPM と連携したプラグインを作成するには、以下のチュートリアルを参照してください。" />
 
 ## KPM API について
 
 KPM は、以下の機能を API として公開しています。これらの API を利用することで、KPM と連携したプラグインを作成できます。  
 それぞれの詳細な説明については、各リンク先を参照してください。
 
-+ [KPM 情報ファイル](/dev-docs/kpm-api/kpm-info)  
++ [KPM 情報ファイル](/dev-docs/api-docs/kpm-info)  
   プラグインに KPM 用の注釈を記述して、KPM にプラグインの情報を提供します。
-+ [KPM フック](/dev-docs/kpm-api/hook)  
++ [KPM フック](/dev-docs/api-docs/hook)  
   インストール時やアンインストール時に、 プラグインのメソッドを呼び出します。
 
 ## ライセンス
 
 KPM は、[The MIT License](/dev-docs/licenses/#the-mit-license) で公開されていますが、その一部に例外があります。
-詳しくは、[こちら](/dev-docs/licenses) を参照してください。
+詳しくは、[こちら](/dev-docs/api-docs/licenses) を参照してください。
