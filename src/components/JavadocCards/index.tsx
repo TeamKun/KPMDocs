@@ -30,7 +30,7 @@ function JavadocCard(props: JavadocItem) {
                 </ul>
             </div>
             <div className={styles.javadocLink}>
-                <Link className={"button button--primary button--lg"} href={"/javadoc?redirect=1&version=" + props.version}>
+                <Link className={"button button--primary button--lg"} href={"/javadoc?redirect=1&version=" + props.version} target={"_blank"}>
                     Jump!
                 </Link>
                 <p className={styles.releaseDate}>(Released on {releasedDateString})</p>
