@@ -32,7 +32,8 @@ function redirectMode(params: URLSearchParams) {
     if (method)
         refPath += "#" + method.replace("(", "-").replace(")", "-");
 
-    window.location.href = refPath
+    window.location.replace(refPath)  // redirect to javadoc without saving history of this redirect page
+
 
     return <div>Redirecting...</div>
 }

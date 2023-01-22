@@ -13,9 +13,13 @@
 .javadocCard {
     display: flex;
     border: 1px solid var(--ifm-color-emphasis-500);
-    border-radius: 5px;
-    padding: 10px 10px 0;
+    border-radius: 15px;
+    padding: 20px 20px 0;
     align-items: center;
+
+    background-color: var(--ifm-color-emphasis-100);
+    /* shadow */
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
 
     max-width: 50%;
     margin: 1rem auto auto;
@@ -28,7 +32,7 @@
 }
 
 .releaseDate {
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     color: var(--ifm-color-emphasis-900);
     font-style: italic;
     margin-top: 5px;

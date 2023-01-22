@@ -13,8 +13,9 @@ interface JavadocItem {
 function JavadocCard(props: JavadocItem) {
 
     const releasedDate = new Date(props.releaseDate * 1000)
-    const isPositiveTZ = !releasedDate.getTimezoneOffset().toString().startsWith("-")
-    const offsetString = "GMT" + (isPositiveTZ ? "+": "") + (releasedDate.getTimezoneOffset() / 60)
+    const timeZoneOffset = releasedDate.getTimezoneOffset() * -1
+    const isPositiveTZ = !timeZoneOffset.toString().startsWith("-")
+    const offsetString = "UTC" + (isPositiveTZ ? "+": "") + (timeZoneOffset / 60)
     const releasedDateString = `${releasedDate.toLocaleDateString()} ${releasedDate.toLocaleTimeString('ja-JP')} ${offsetString}`
 
     return (
@@ -29,10 +30,10 @@ function JavadocCard(props: JavadocItem) {
                 </ul>
             </div>
             <div className={styles.javadocLink}>
-                <Link className={"button button--primary button--lg"} href={"/javadoc/" + props.version}>
+                <Link className={"button button--primary button--lg"} href={"/javadoc?redirect=1&version=" + props.version}>
                     Jump!
                 </Link>
-                <p className={styles.releaseDate}>Released on {releasedDateString}</p>
+                <p className={styles.releaseDate}>(Released on {releasedDateString})</p>
             </div>
         </div>
     );
