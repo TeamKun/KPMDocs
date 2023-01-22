@@ -1,7 +1,8 @@
-
-import type { Props } from "@theme/MDXComponents/A"
+import type {Props} from "@theme/MDXComponents/A"
 import React from "react";
 import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import IconExternalLink from "@theme/Icon/ExternalLink";
 
 const parseJavadocLink = (link) => {
     let javadocLink = link.substring(8, link.indexOf("?"));
@@ -47,6 +48,8 @@ const buildJavadocURL = (pkg: string, clazz?: string, method?: string, version?:
 }
 
 export default function MDXA(props: Props): JSX.Element {
+    const {siteConfig} = useDocusaurusContext();
+
     let link = props.href;
     let text = props.children;
 
@@ -55,10 +58,10 @@ export default function MDXA(props: Props): JSX.Element {
         if (!parsed) {
             return <span dangerouslySetInnerHTML={{
                 __html: `<a href="javascript:alert('Invalid javadoc link');" style="text-decoration: line-through">${props.children}</a>`
-            }} />
+            }}/>
         }
 
-        const { pkg, clazz, method } = parsed
+        const {pkg, clazz, method} = parsed
 
         const query = new URLSearchParams(link.substring(link.indexOf("?") + 1))
         const version = query.has("version") ? query.get("version") : undefined
@@ -69,5 +72,13 @@ export default function MDXA(props: Props): JSX.Element {
             text = clazz ? clazz + (method ? "." + method : "") : pkg
     }
 
-    return <Link {...props} to={link}>{text}</Link>
+    const isExternal = link.startsWith("http") && !link.startsWith(siteConfig.url);
+
+    return <>
+        <Link {...props} to={link}>{text}</Link>
+        {
+            isExternal && <span style={{display: "inline-flex", width: 16, marginLeft: -3 }}>
+            <IconExternalLink/></span>
+        }
+    </>
 }
