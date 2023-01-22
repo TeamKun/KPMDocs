@@ -53,7 +53,8 @@ export default function MDXA(props: Props): JSX.Element {
     let link = props.href;
     let text = props.children;
 
-    if (link.startsWith("javadoc:")) {
+    const isJavadoc = link.startsWith("javadoc:");
+    if (isJavadoc) {
         const parsed = parseJavadocLink(link)
         if (!parsed) {
             return <span dangerouslySetInnerHTML={{
@@ -72,7 +73,7 @@ export default function MDXA(props: Props): JSX.Element {
             text = clazz ? clazz + (method ? "." + method : "") : pkg
     }
 
-    const isExternal = link.startsWith("http") && !link.startsWith(siteConfig.url);
+    const isExternal = isJavadoc || link.startsWith("http") && !link.startsWith(siteConfig.url);
 
     return <>
         <Link {...props} to={link}>{text}</Link>
