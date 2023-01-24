@@ -5,8 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
-    "build-javadoc": "ts-node ./scripts/build-javadoc.ts",
+    "build:page": "docusaurus build",
+    "build:javadoc": "ts-node ./scripts/build-javadoc.ts",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

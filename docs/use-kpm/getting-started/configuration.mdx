@@ -188,6 +188,8 @@ HTTP リクエストのリダイレクトの最大数を設定します。
   - `url`: `https://raw.githubusercontent.com/TeamKun/PluginManagerRepository/main/database.json`
 + 型： `Object{name: String, url: String}[]`\(`Array<Object{name: String, url: String}>`)
 
+---
+
 ### 除外設定
 
 KPM による管理や、インストーラの操作から除外するプラグインを設定します。  
@@ -224,19 +226,23 @@ KPM のバージョンを設定します。
 
 KPM の使用場面や、環境によってのオススメ設定を紹介します。
 
+---
+
 ### ケース：リクエストが CloudFlare 等の DDoS プロテクタにブロックされる
 
 KPM のリクエストは、デフォルトでは KPM オリジナルのユーザーエージェントを使用します。  
-全く、絶対に起こり得ないとは思いますが、もし、もしブロックされた場合は、以下のような代替ユーザエージェントをお試しください。
+全く、絶対に、多分ほぼ起こり得ないとは思いますが、もし、もしブロックされた場合は、以下のような代替ユーザエージェントを試してください。
 
 + `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36`
 + `Mozilla/5.0 (Macintosh; Intel Mac OS X 13.1; rv:108.0) Gecko/20100101 Firefox/108.0`
 + `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54`
 
+---
+
 ### ケース：ローカルの複数のサーバでパフォーマンスを最適化したい
 
 KPM は、デフォルトでは各サーバごとにエイリアスのデータベースやトークンの設定を持っています。
-しかし、複数のサーバで同じ設定を使用する場合は、以下のように設定を共有することができます。
+しかし、複数のサーバで同じ設定を使用する場合は、以下のように設定を共有できます。
 
 1. KPM の設定を共有して保存するディレクトリを作成します。
   ```sh
