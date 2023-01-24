@@ -1,0 +1,146 @@
+import DocCard from "@theme/DocCard"
+
+# KPM 用語集
+
+このページでは、このドキュメントまたはプラグイン内で使用されている用語を解説しています。
+
+---
+
+## 基本用語一覧
+
+### KPM
+
+Team<ins>K</ins>UN<ins>P</ins>lugin<ins>M</ins>anager の頭文字を取った略称です。  
+このドキュメントでは TeamKUNPluginManager を KPM と表記しています。適宜読み替えてください。
+
+:::tip
+
+将来的に、KPM は TeamKUNPluginManager の別名として使用され、略称ではなくなる可能性があります。\(npm のように)
+
+:::
+
+### PaperMC
+
+[PaperMC](https://papermc.io/) は、[Spigot](https://www.spigotmc.org/) や [Bukkit](https://www.bukkit.org/) と並ぶ、
+[Minecraft](https://www.minecraft/net/) サーバーの実装です。  
+KPM は、 PaperMC 上でのみ動作します。詳しくは[こちら](/docs/use-kpm/getting-started/install.mdx#このページの前提要件)を参照してください。
+
+### GitHub
+
+[GitHub](https://www.github.com/) は、[Microsoft](https://www.microsoft.com/ja-jp/) が運営する、プログラミング言語のソースコードを管理するためのサービスです。  
+KPM では、[GitHub](https://www.github.com/) 上に公開されているプラグインをインストールできます。また、 KPM を使用するには [GitHub](https://www.github.com/) アカウントが必要です。
+詳しくは[こちら](#)を参照してください。
+また、 GitHub 関連用語は[こちら](#github-関連用語一覧)を参照してください。
+
+<!-- TODO: GitHubをつかったインストールのリンクを張る -->
+
+---
+
+## GitHub 関連用語一覧
+
+### GitHub OAuth トークン
+
+GitHub OAuth トークンは、[GitHub](#github) にログインするためのトークンです。  
+KPM では、 [GitHub](#github) と KPM を連携するために使用します。詳しくは[こちら](/docs/use-kpm/getting-started/link-github.mdx)を参照してください。
+
+### GitHub リポジトリ
+
+GitHub リポジトリは、[GitHub](#github) 上に公開されているプラグインのソースコードを管理するための場所です。  
+KPM では、 GitHub リポジトリ上に[リリース](#リリース)されているプラグインをインストールできます。詳しくは[こちら](#)を参照してください。
+
+<!-- TODO: GitHubをつかったインストールのリンクを張る -->
+
+### リリース
+
+GitHub リリースは、[GitHub](#github) リポジトリ上で公開されているプラグインのバージョンに似ています。
+これは、KPM でインストールするプラグインのバージョンに相当します。
+
+---
+
+## KPM 関連用語一覧
+
+### プラグイン解決
+
+KPM が[クエリ](#クエリ)\(文字列のこと。)からプラグインを一意に特定し、プラグインの情報を取得するまでの一連の処理のことです。
+また、[プラグインリゾルバ](#プラグインリゾルバ) と呼ばれるモジュールでプラグインを解決します。
+
+### [クエリ\(クエリ文字列)](/docs/expressions/query)
+
+クエリは、 KPM がプラグインを解決するために使用する文字列です。
+詳しくは以下を参照してください。
+
+<DocCard
+  item={{
+    type: "link",
+    label: "クエリ文字列とは？",
+    docId: "expressions/query",
+    href: "/docs/expressions/query",
+  }}
+/>
+
+### プラグインリゾルバ
+
+プラグインリゾルバは、 KPM がプラグインを解決するために使用するモジュールです。
+現在は、以下のプラグインリゾルバが存在します。
+
+- GitHub リゾルバ
+
+  `https://github.com/TemKun/StealPlugin` や、 `TeamKun/StealPlugin` などのクエリを解決します。
+
+- Spigot MC リゾルバ
+
+  `https://www.spigotmc.org/resources/stealplugin.12345` などのクエリを解決します。
+
+- エイリアスリゾルバ
+
+  `u` など、予め定義されたエイリアスのクエリを解決します。
+
+- CurseForge リゾルバ
+
+  `https://www.curseforge.com/minecraft/mc-mods/stealplugin` や、 `https://dev.bukkit.org/projects/stealplugin` などのクエリを解決します。
+
+### リロード
+
+プラグインを一度アンロードし、再度読み込むことをリロードと呼びます。
+
+主なリロードの流れは以下の通りです：
+
+1. プラグインを無効化する
+2. プラグインをアンロードする
+   1. プラグインが登録したコマンドを削除する
+   2. プラグインが登録したレシピを削除する
+3. プラグインをサーバのインデックスから削除する
+4. プラグインのクラスローダーを削除する
+5. サーバ JVM の[ガベージ・コレクション\(GC)](https://wa3.i-3-i.info/word1176.html) を実行する
+6. プラグインを読み込む
+7. プラグインを有効化する
+
+### インストール
+
+KPM がプラグインをサーバーにサーバに追加する一連の流れをインストールと呼びます。
+
+主なインストールの流れは以下の通りです：
+
+1. [プラグインを解決](#プラグイン解決)する
+2. プラグインの jar ファイルをダウンロードする
+3. プラグインの依存関係を解決する
+4. 依存関係の jar ファイルをダウンロードする
+5. 依存関係の依存関係がある場合, 3 と 4 を繰り返す
+6. 依存関係の読み込み順を計算する
+7. プラグインと依存関係を読み込む
+8. プラグインと依存関係を有効化する
+
+### アンインストール
+
+KPM がプラグインをサーバーから削除する一連の流れをアンインストールと呼びます。
+
+主なアンインストールの流れは以下の通りです：
+
+1. プラグインを無効化する
+2. プラグインをアンロードする
+   1. プラグインが登録したコマンドを削除する
+   2. プラグインが登録したレシピを削除する
+3. プラグインをサーバのインデックスから削除する
+4. プラグインのクラスローダーを削除する
+5. サーバ JVM の[ガベージ・コレクション\(GC)](https://wa3.i-3-i.info/word1176.html) を実行する
+6. プラグインのファイルを削除する

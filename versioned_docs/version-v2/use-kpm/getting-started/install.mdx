@@ -1,0 +1,62 @@
+import DocCard from "@theme/DocCard"
+
+# KPM をインストールする
+
+このページでは、KPM を新規インストールする方法を説明しています。
+また、KPM を使用するためには、有効な GitHub アカウントが必要です。
+
+---
+
+## このページの前提要件
+
+| 要件名                                                    | 要件                                               | 摘要                                                                                                                         |
+| :-------------------------------------------------------- | :------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| [Minecraft](https://www.minecraft.net) サーバソフトウェア | [PaperMC](https://papermc.io/) 1.13+               |                                                                                                                              |
+| Java バージョン                                           | Java 1.8+                                          | PaperMC のバージョンに依存します。 [PaperMC ドキュメント](https://docs.papermc.io/paper/getting-started)を参照してください。 |
+| [GitHub](https://www.github.com) アカウント               | 有効な [GitHub](https://www.github.com) アカウント | プラグインの解決に [GitHub](https://www.github.com) アカウントが必要です。                                                   |
+
+:::caution
+
+KPM は、 [PaperMC](https://www.papermc.io/) 以外のサーバ(例：Spigot, Bukkit…)では動作しません。
+[PaperMC](https://www.papermc.io/) への移行ガイドは[こちら](https://docs.papermc.io/paper/migration)から参照してください。
+
+:::
+
+### ステップ 1：最新のプラグイン・アーティファクト をダウンロードする
+
+1. [こちら](https://www.github.com/TeamKUN/TeamKUNPluginManager/releases/latest)にアクセスし、最新リリースを確認します。
+2. Assets の下の `TeamKunPluginManager-<バージョン>.jar` をクリックすると、ダウンロードが始まります。
+3. 任意の場所に保存しましょう。
+
+### ステップ 2：サーバのプラグインフォルダに配置する
+
+KPM をあなたが普段プラグインを追加するように、サーバのプラグインフォルダ(例：`plugins/`)に配置します。
+
+### ステップ 3：サーバを再起動する
+
+サーバを再起動して KPM を有効化します。
+
+:::caution
+
+KPM は、PlugMan 等を使用した動的再読み込みには対応していません！  
+これを行うと、予期しないバグまたはエラーが発生する可能性があります。  
+(<kbd>/reload</kbd> 等のサーバのビルトイン・コマンドを使用した動的再読み込みは可能です。)
+
+:::
+
+### ステップ 4：KPM と GitHub を連携する
+
+以下のページを参照してください。
+
+<DocCard
+  item={{
+    type: "link",
+    label: "KPM と GitHub を 連携する",
+    docId: "use-kpm/getting-started/link-github",
+    href: "/docs/use-kpm/getting-started/link-github",
+  }}
+/>
+
+### ステップ 5：プラグイン定義ファイルをアップデートする \[任意]
+
+<kbd>/kpm update</kbd> コマンドを実行して、プラグイン定義ファイルをアップデートします。これにより、 KPM のプラグイン解決精度が上がります。

@@ -45,6 +45,15 @@ const config = {
 
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "KPM v3 (WIP)",
+            },
+            v2: {
+              label: "KPM v2",
+            },
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -67,6 +76,15 @@ const config = {
         ],
       },
     ],
+      [
+        "@docusaurus/plugin-content-docs",
+        {
+            id: "dev",
+            path: "dev-docs",
+            routeBasePath: "dev-docs",
+            sidebarPath: require.resolve("./sidebars.ts"),
+        }
+      ]
   ],
 
   themeConfig:
@@ -104,9 +122,24 @@ const config = {
             label: "用語集",
           },
           {
+            to: "/dev-docs/home",
+            position: "left",
+            label: "開発者向け",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
+          },
+          {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
             position: "right",
             label: "ダウンロード",
+          },
+          {
+            href: "/javadoc",
+            position: "right",
+            label: "Javadoc"
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager",
@@ -128,6 +161,14 @@ const config = {
               {
                 label: `KPM を使い始める`,
                 to: "/docs/use-kpm/getting-started",
+              },
+              {
+                label: `コマンド一覧`,
+                to: "/docs/use-kpm/commands",
+              },
+              {
+                label: `KPM 用語集`,
+                to: "/docs/expressions",
               },
             ],
           },
@@ -171,6 +212,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["java"],
       },
       zoom: {
         background: {

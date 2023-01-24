@@ -1,0 +1,41 @@
+import Since from "../../../src/components/Since"
+
+# アップグレードコマンド
+
+サーバのプラグインを最新のバージョンにアップグレードします。
+
+---
+
+## コマンド概要 - <kbd>/kpm upgrade</kbd>
+
+サーバのプラグインを最新のバージョンにアップグレードします。
+このコマンドは、内部で [アンインストール](/docs/expressions/#アンインストール) と [インストール](/docs/expressions/#インストール) を実行します。
+
+<Since version="v3" newMode />
+
+:::warning
+
+このコマンドでは、 KPM 自体をアップグレードできません。  
+KPM をアップグレードする場合、 <kbd>[upgrade-kpm](/docs/use-kpm/commands#upgrade-kpm)</kbd> コマンドを使用してください。
+
+:::
+
+### エイリアス
+
+_\(なし)_
+
+### コマンド構文
+
+- `upgrade [プラグイン名１] [プラグイン名２]...`
+
+引数を省略した場合、サーバの全てのプラグインをスキャンし、アップグレードします。
+
+### 権限
+
+- `kpm.upgrade`
+- `kpm.*`
+
+### スクリーンショット
+
+![Success#x150](images/upgrade/success.png)
+![Not upgradable#x150](images/upgrade/not-upgradable.png)
