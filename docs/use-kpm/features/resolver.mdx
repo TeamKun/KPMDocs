@@ -1,0 +1,153 @@
+import RelatedFeatures from "../../../src/components/RelatedFeatures"
+import Since from "../../../src/components/Since"
+
+# プラグインリゾルバ
+
+[クエリ](query)から[プラグインを解決](/docs/expressions/#プラグイン解決プラグインリゾルブ)します。
+
+---
+
+## 概要
+
+プラグインリゾルバは、有効な[クエリ](query)を解決し、プラグインの直リンクを返すモジュールです。
+この機能により、インストール時にプラグイン検索して直リンクをコピーする必要がなくなります。
+
+各サービスプロバイダに 1 つずつのリゾルバが割り当てられており、プラグインリゾルバは KPM 内部で登録された順に解決を試みます。
+KPM は、GitHub, SpigotMC などの各サービスに対応したリゾルバを複数個登録しています。  
+詳しくは以下の[リゾルバ一覧](#リゾルバ一覧)セクションを参照してください。
+
+<Since version={"v3"} />
+
+## リゾルバ一覧
+
+---
+
+### AliasResolver
+
+事前に登録されたプラグインの別名（[エイリアス](alias)）を用いて解決します。
+
+<!-- TODO: エイリアス構成のリンクを張る -->
+
+#### リゾルバ名
+
+- <kbd>alias</kbd>
+- <kbd>local</kbd>
+
+#### 例
+
+- `ExampleAlias`
+- `alias>ExampleAlias`
+- `local>ExampleAlias==1.0.0`
+
+---
+
+### BruteforceGitHubResolver
+
+[GitHub](https://github.com/) 上に公開されているプラグインの組織名（ユーザ名）を省略するために使用する補助的なリゾルバです。
+
+:::note
+
+このリゾルバは直接指定できません。また、直リンクを返さず、[GitHubURLResolver](#githuburlresolver) に処理を委譲します。  
+これは、 [GitHub の優越](query#github-の優越)によるためです。
+
+:::
+
+:::info
+
+これはフォールバックリゾルバの一つです。  
+他のリゾルバが解決に失敗した場合に使用されます。
+
+:::
+
+---
+
+### CurseBukkitResolver
+
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods) と [Bukkit](https://dev.bukkit.org/projects) 上に公開されているプラグインを解決します。
+
+このリゾルバは、 有効な CurseForge または Bukkit のプラグインページの URL のみを受け入れます。
+
+#### リゾルバ名
+
+- <kbd>curseforge</kbd>
+- <kbd>curse</kbd>
+- <kbd>forge</kbd>
+- <kbd>bukkit</kbd>
+
+#### 例
+
+- `https://www.curseforge.com/minecraft/mc-mods/example-mod`
+- `curseforge>https://www.curseforge.com/minecraft/mc-mods/example-mod==123456`
+
+---
+
+### GitHubURLResolver
+
+[GitHub](https://github.com) 上に公開されているプラグインを解決します。
+
+このリゾルバは、 有効な GitHub のプラグインページの URL のみを受け入れます。
+
+#### リゾルバ名
+
+- <kbd>github</kbd>
+- <kbd>gh</kbd>
+
+#### 例
+
+- `https://www.github.com/ExampleUser/ExamplePlugin`
+- `github>https://github.com/ExampleUser/ExamplePlugin==1.0.0`
+
+---
+
+### RawURLResolver
+
+既に解決されている直リンクをオウム返しする補助的なリゾルバです。
+
+:::note
+
+このリゾルバは直接指定できません。
+
+:::
+
+:::info
+
+これはフォールバックリゾルバの一つです。  
+他のリゾルバが解決に失敗した場合かつ、 URL が指定された場合に使用されます。
+
+:::
+
+---
+
+### SpigotMCResolver
+
+[SpigotMC](https://www.spigotmc.org/resources/) 上に公開されているプラグインを解決します。  
+このリゾルバは、 有効な SpigotMC のプラグインページの URL のみを受け入れます。
+
+#### リゾルバ名
+
+- <kbd>spigotmc</kbd>
+- <kbd>spigot</kbd>
+- <kbd>spiget</kbd>
+
+#### 例
+
+- `https://www.spigotmc.org/resources/example-plugin.123456/`
+- `spigotmc>https://www.spigotmc.org/resources/example-plugin.123456`
+
+---
+
+### OmittedGitHubResolver
+
+[GitHub](https://github.com) 上に公開されているプラグインを解決する際に、 `https://github.com/` を省略した形式でも解決できるようにする補助的なリゾルバです。
+
+#### 例
+
+- `ExampleUser/ExamplePlugin`
+- `ExampleUser/ExamplePlugin==1.0.0`
+- `github>ExampleUser/ExamplePlugin==1.0.0`
+
+---
+
+## 関連項目
+
+<RelatedFeatures docNames={["query", "alias/README"]} headerLevel={0} />

@@ -4,5 +4,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "scripts/**/*",
+  ]
 }

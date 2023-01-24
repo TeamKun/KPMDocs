@@ -1,31 +1,47 @@
 import React from "react"
 import DocCard from "@theme/DocCard"
 // @ts-ignore
-import { useDocById } from "@docusaurus/theme-common/internal"
+import { useDocById, useLocalPathname } from "@docusaurus/theme-common/internal"
 
 type BelowDocumentProps = {
   docId: string
-  noInfo?: boolean
+  message?: string
+
+  small?: boolean
+
+  anchor?: string
 }
 
-const BelowDocument: React.FC<BelowDocumentProps> = ({ docId, noInfo }) => {
+const BelowDocument: React.FC<BelowDocumentProps> = ({ docId, message, small , anchor}) => {
   const doc = useDocById(docId)
   if (!doc) {
     throw new Error(`Document with id ${docId} not found`)
   }
 
-  return (
-    <div>
-      {!noInfo && <p>詳しくは以下のドキュメントを参照してください：</p>}
-      <DocCard
-        item={{
-          type: "link",
-          label: doc.title,
-          docId: doc.id,
-          href: "/docs/" + doc.id,
-        }}
-      />
-    </div>
+  const smallMode = !small
+    ? undefined
+    : {
+        width: "350px",
+      }
+
+  const displayMessage = message ? message : "詳しくは以下のドキュメントを参照してください："
+  const path = "/" + useLocalPathname().split("/").slice(1, 2).join("/") + "/" + (doc.id.endsWith("/README") ? doc.id.slice(0, -7) : doc.id) +
+    (anchor ? "#" + anchor : "")
+
+    return (
+    <>
+      <p>{displayMessage}</p>
+      <div style={smallMode}>
+        <DocCard
+          item={{
+            type: "link",
+            label: doc.title,
+            docId: doc.id,
+            href: path,
+          }}
+        />
+      </div>
+    </>
   )
 }
 

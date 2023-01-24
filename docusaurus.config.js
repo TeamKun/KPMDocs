@@ -45,14 +45,14 @@ const config = {
 
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          lastVersion: 'current',
+          lastVersion: "current",
           versions: {
             current: {
-              label: 'KPM v3 (WIP)',
+              label: "KPM v3 (WIP)",
             },
-            "v2": {
-              label: 'KPM v2',
-            }
+            v2: {
+              label: "KPM v2",
+            },
           },
         },
         theme: {
@@ -76,6 +76,15 @@ const config = {
         ],
       },
     ],
+      [
+        "@docusaurus/plugin-content-docs",
+        {
+            id: "dev",
+            path: "dev-docs",
+            routeBasePath: "dev-docs",
+            sidebarPath: require.resolve("./sidebars.ts"),
+        }
+      ]
   ],
 
   themeConfig:
@@ -113,14 +122,24 @@ const config = {
             label: "用語集",
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'right',
+            to: "/dev-docs/home",
+            position: "left",
+            label: "開発者向け",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
             dropdownActiveClassDisabled: true,
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager/releases",
             position: "right",
             label: "ダウンロード",
+          },
+          {
+            href: "/javadoc",
+            position: "right",
+            label: "Javadoc"
           },
           {
             href: "https://github.com/TeamKUN/TeamKUNPluginManager",
@@ -193,6 +212,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["java"],
       },
       zoom: {
         background: {

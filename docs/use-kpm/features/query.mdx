@@ -1,0 +1,124 @@
+import Since from "@site/src/components/Since"
+import BelowDocument from "@site/src/components/BelowDocument"
+import RelatedFeatures from "@site/src/components/RelatedFeatures"
+
+# クエリ
+
+プラグインを一意に特定するための簡略化された文字列です。
+
+---
+
+## 概要
+
+クエリは、プラグインを一意に特定し、ダウンロード用の直リンクを解決するために使用する文字列です。  
+これは、インストールコマンドの引数に指定して使用するものです。
+
+<Since version={"v3"} />
+
+---
+
+## クエリの書式
+
+プラグイン解決クエリは以下の要素を含みます：
+
+- 任意 - リゾルバ名
+- 必須 - クエリボディ
+- 任意 - バージョン
+
+リゾルバ名とクエリボディは、`>`で、クエリボディとバージョンは`==`で区切って記述します。
+
+:::tip
+リゾルバ名は、クエリに対応するリゾルバを一意に特定するために使用します。  
+リゾルバ名を指定しないと、予期せず GitHub の代わりに CurseForge で解決されてしまうといった問題が発生する可能性があります。
+:::
+
+<BelowDocument
+  docId="use-kpm/features/resolver"
+  message={"リゾルバや、リゾルバ名の一覧については以下のドキュメントを参照してください："}
+  small
+/>
+
+<br />
+
+:::note
+
+これらすべてが指定されたクエリを、\*\***完全修飾クエリ**\*\*と呼びます。
+
+:::
+
+---
+
+## クエリの例
+
+- `https://github.com/Example/ExamplePlugin`  
+  GitHub で解決します。
+- `https://www.spigotmc.org/resources/example.12345==1.0.0`  
+  バージョンを指定して SpigotMC で解決します。
+- `curseforge>https://dev.bukkit.org/projects/example-12345==123456`  
+  完全就職クエリの例です。CurseForge(DevBukkit) で解決します。
+
+---
+
+## GitHub の優越
+
+GitHub 上のプラグインを解決する場合は、以下の省略記法が使用できます。  
+この場合においても、リゾルバ名とバージョンを指定できます。
+
+:::info
+
+この機能は、 KUN Lab 組織にあるプラグインを楽にインストールするために作成されました。  
+そのため、 KUN Lab 上にあるプラグインは事前設定なしに、省略記法が使用できます。
+
+:::
+
+- `Example/ExamplePlugin`  
+  `https://github.com/` を省略します。
+- `Example`  
+  組織名を省略します。
+
+  :::note
+
+  組織名の省略は、（ KUN LAB を除いて）予め設定された組織のみ有効です。
+
+  <BelowDocument docId="use-kpm/features/resolver" message={"組織名を省略する設定は以下を参照してください："} small />
+
+  :::
+
+---
+
+## [バッカス・ナウア記法(BNF)](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%83%E3%82%AB%E3%82%B9%E3%83%BB%E3%83%8A%E3%82%A6%E3%82%A2%E8%A8%98%E6%B3%95)
+
+```bnf
+<url> ::= <see https://www.w3.org/Addressing/URL/5_BNF.html>
+<stringToken> ::= <all of unicode except for ">", " ", and "=">
+<githubToken> ::= <all of the github username and repository name characters>
+<validSemver> ::= <see https://semver.org/lang/ja/#semverバージョンを表すバッカスナウア記法>
+<digits> ::= ("0"|...|"9")+
+
+<resolver> ::= ("alias" | "local" |
+                "bukkit" |
+                "curse" | "curseforge" | "forge" |
+                "gh" | "github" |
+                "spiget" | "spigot" | "spigotmc") ">"
+<version> ::= "==" <validSemver>
+
+
+<spigotMCToken> ::= "https://spigotmc.org/resources/" <stringToken> "." <digits> "/" |
+                    "https://www.spigotmc.org/resources/" <stringToken> "." <digits> "?update=" <digits>
+<curseBukkitSlug> ::= <stringToken> "-" <digits>
+<curseBukkitToken> ::= "https://dev.bukkit.org/projects/" <curseBukkitSlug> |
+                       "https://dev.bukkit.org/projects/" <curseBukkitSlug> "/files/" <digits>
+
+<query> ::= (<stringToken> | <resolver> <stringToken> | <resolver> <stringToken> <version>) |
+            (<githubToken> "/" <githubToken> | <githubToken>) |
+            (<url> | <url> <version>) |
+            <spigotMCToken> |
+            <curseBukkitToken>
+
+```
+
+---
+
+## 関連項目
+
+<RelatedFeatures docNames={["resolver", "alias/README"]} headerLevel={0} />

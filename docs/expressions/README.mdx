@@ -1,4 +1,4 @@
-import DocCard from "@theme/DocCard"
+import BelowDocument from "../../src/components/BelowDocument"
 
 # KPM 用語集
 
@@ -7,6 +7,8 @@ import DocCard from "@theme/DocCard"
 ---
 
 ## 基本用語一覧
+
+---
 
 ### KPM
 
@@ -27,10 +29,9 @@ KPM は、 PaperMC 上でのみ動作します。詳しくは[こちら](/docs/u
 
 ### GitHub
 
-[GitHub](https://www.github.com/) は、[Microsoft](https://www.microsoft.com/ja-jp/) が運営する、プログラミング言語のソースコードを管理するためのサービスです。  
-KPM では、[GitHub](https://www.github.com/) 上に公開されているプラグインをインストールできます。また、 KPM を使用するには [GitHub](https://www.github.com/) アカウントが必要です。
-詳しくは[こちら](#)を参照してください。
-また、 GitHub 関連用語は[こちら](#github-関連用語一覧)を参照してください。
+[GitHub](https://www.github.com/) は、[Microsoft](https://www.microsoft.com/ja-jp/) が運営する、プログラムのソースコードを管理するためのサービスです。  
+KPM では、[GitHub](https://www.github.com/) 上に公開されているプラグインをインストールできます。また、 KPM を使用するには [GitHub](https://www.github.com/) アカウントが必要です。  
+GitHub に関連する用語一覧は[こちら](#github-関連用語一覧)を参照してください。
 
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 
@@ -52,52 +53,35 @@ KPM では、 GitHub リポジトリ上に[リリース](#リリース)されて
 
 ### リリース
 
-GitHub リリースは、[GitHub](#github) リポジトリ上で公開されているプラグインのバージョンに似ています。
+GitHub リリースは、[GitHub](#github) リポジトリ上で公開されているプラグインのバージョンと似ています。  
 これは、KPM でインストールするプラグインのバージョンに相当します。
 
 ---
 
 ## KPM 関連用語一覧
 
-### プラグイン解決
+### プラグイン解決(プラグインリゾルブ)
 
-KPM が[クエリ](#クエリ)\(文字列のこと。)からプラグインを一意に特定し、プラグインの情報を取得するまでの一連の処理のことです。
+KPM が[クエリ](#クエリ-クエリ文字列)からプラグインを一意に特定し、プラグインの情報を取得するまでの一連の処理のことです。  
 また、[プラグインリゾルバ](#プラグインリゾルバ) と呼ばれるモジュールでプラグインを解決します。
 
-### [クエリ\(クエリ文字列)](/docs/expressions/query)
+### [クエリ](../use-kpm/features/query) \(クエリ文字列)
 
 クエリは、 KPM がプラグインを解決するために使用する文字列です。
-詳しくは以下を参照してください。
 
-<DocCard
-  item={{
-    type: "link",
-    label: "クエリ文字列とは？",
-    docId: "expressions/query",
-    href: "/docs/expressions/query",
-  }}
-/>
+<BelowDocument docId="use-kpm/features/query" />
 
-### プラグインリゾルバ
+### [エイリアス](../use-kpm/features/alias)
+
+エイリアスは、プラグインやクエリに別名をつけられる機能です。
+
+<BelowDocument docId="use-kpm/features/alias/README" />
+
+### [プラグインリゾルバ](../use-kpm/features/resolver)
 
 プラグインリゾルバは、 KPM がプラグインを解決するために使用するモジュールです。
-現在は、以下のプラグインリゾルバが存在します。
 
-- GitHub リゾルバ
-
-  `https://github.com/TemKun/StealPlugin` や、 `TeamKun/StealPlugin` などのクエリを解決します。
-
-- Spigot MC リゾルバ
-
-  `https://www.spigotmc.org/resources/stealplugin.12345` などのクエリを解決します。
-
-- エイリアスリゾルバ
-
-  `u` など、予め定義されたエイリアスのクエリを解決します。
-
-- CurseForge リゾルバ
-
-  `https://www.curseforge.com/minecraft/mc-mods/stealplugin` や、 `https://dev.bukkit.org/projects/stealplugin` などのクエリを解決します。
+<BelowDocument docId="use-kpm/features/resolver" />
 
 ### リロード
 
@@ -117,18 +101,8 @@ KPM が[クエリ](#クエリ)\(文字列のこと。)からプラグインを�
 
 ### インストール
 
-KPM がプラグインをサーバーにサーバに追加する一連の流れをインストールと呼びます。
-
-主なインストールの流れは以下の通りです：
-
-1. [プラグインを解決](#プラグイン解決)する
-2. プラグインの jar ファイルをダウンロードする
-3. プラグインの依存関係を解決する
-4. 依存関係の jar ファイルをダウンロードする
-5. 依存関係の依存関係がある場合, 3 と 4 を繰り返す
-6. 依存関係の読み込み順を計算する
-7. プラグインと依存関係を読み込む
-8. プラグインと依存関係を有効化する
+KPM がプラグインをサーバーにサーバに追加する一連の流れをインストールと呼びます。  
+インストールの流れは[こちら](/docs/use-kpm/commands/install#インストールの流れ)を参照してください。
 
 ### アンインストール
 

@@ -5,7 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build:page": "docusaurus build",
+    "build:javadoc": "ts-node ./scripts/build-javadoc.ts",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -45,7 +46,10 @@
     "lint-staged": "^13.0.3",
     "husky": "^8.0.2",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "simple-git": "^3.16.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1"
   },
   "browserslist": {
     "production": [
