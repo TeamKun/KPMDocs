@@ -5,7 +5,8 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 
 const parseJavadocLink = (link) => {
-    let javadocLink = link.substring(8, link.indexOf("?"));
+    const queryIndex = link.indexOf("?")
+    let javadocLink = link.substring(8, queryIndex > 0 ? queryIndex : link.length)
 
     const regex = /^(?<packageName>[a-z.]+(?<!\.))(\.(?<className>(([A-Z$][a-zA-Z$]*)(\.)?)+))?(?<methodWithArgument>[a-z][a-zA-Z]*\(.*\))?$/
 
@@ -76,7 +77,7 @@ export default function MDXA(props: Props): JSX.Element {
     const isExternal = isJavadoc || link.startsWith("http") && !link.startsWith(siteConfig.url);
 
     return <>
-        <Link {...props} to={link}>{text}</Link>
+        <Link {...props} to={link} target={isExternal ? "_blank" : undefined}>{text}</Link>
         {
             isExternal && <span style={{display: "inline-flex", width: 16, marginLeft: -3 }}>
             <IconExternalLink/></span>

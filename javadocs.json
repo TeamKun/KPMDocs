@@ -5,12 +5,5 @@
         "mainFeatures": [
             "New plugin system"
         ]
-    },
-    {
-        "version": "3.0.0-pre8",
-        "releaseDate": 1674304101,
-        "mainFeatures": [
-            "New plugin system"
-        ]
     }
 ]

@@ -5,32 +5,29 @@ import JavadocCards from "@site/src/components/JavadocCards";
 import { useLocation } from 'react-router-dom';
 import javadocs from "@site/javadocs.json";
 
-const joinPath = (...paths: string[]) => {
-    return paths.join("/").replace(/\/+/g, "/")
-}
 
 function redirectMode(params: URLSearchParams) {
-    const pkg = params.has("package") ? params.get("package") : null;
-    let version = params.has("version") ? params.get("version") : null;
-    const clazz = params.has("class") ? params.get("class") : null;
-    const method = params.has("method") ? params.get("method") : null;
+    const pkg = params.has("package") ? params.get("package") : null
+    let version = params.has("version") ? params.get("version") : null
+    const clazz = params.has("class") ? params.get("class") : null
+    const method = params.has("method") ? params.get("method") : null
 
     if (!version || version === "latest")
         version = javadocs[javadocs.length - 1].version
 
-    let refPath = joinPath("/", "javadoc", version);
+    let refPath = `/javadoc/${version}/index.html?`
 
     if (pkg) {
-        refPath = joinPath(refPath, pkg.replace(/\./g, "/"));
+        refPath+= pkg.replace(/\./g, "/")
         if (!clazz)
-            refPath = joinPath(refPath, "package-summary.html");
+            refPath += "/package-summary.html"
     }
 
     if (clazz)
-        refPath = joinPath(refPath, clazz + ".html");
+        refPath += `/${clazz}.html`
 
     if (method)
-        refPath += "#" + method.replace("(", "-").replace(")", "-");
+        refPath += "#" + method.replace("(", "-").replace(")", "-")
 
     window.location.replace(refPath)  // redirect to javadoc without saving history of this redirect page
 
