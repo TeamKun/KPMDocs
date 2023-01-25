@@ -25,8 +25,10 @@ KPM Hook を受け取るには、あなたのプラグインの依存関係に K
 
 以下のリポジトリと依存関係を 依存関係管理ツールに追加してください。
 
+```mdx-code-block
 <Tabs>
-<TabItem value="Maven" label="Maven">
+<TabItem value="Maven" label="Maven" default>
+```
 
 ```xml
 <repositories>
@@ -45,10 +47,12 @@ KPM Hook を受け取るには、あなたのプラグインの依存関係に K
 </dependency>
 ```
 
+```mdx-code-block
 </TabItem>
 <TabItem value="Gradle" label="Gradle">
+```
 
-```gradle
+```groovy
 allprojects {
   repositories {
     ...
@@ -63,21 +67,25 @@ dependencies {
 }
 ```
   
+```mdx-code-block
 </TabItem>
 <TabItem value="SBT" label="SBT">
-
 ```
+
+```scala
 resolvers += "jitpack" at "https://jitpack.io"
 ```
   
-```
+```scala
 libraryDependencies += "com.github.TeamKUN.TeamKUNPluginManager" % "KPMHooks" % "{バージョン}"
 ```
   
+```mdx-code-block
 </TabItem>
 <TabItem value="Leiningen" label="Leiningen">
-
 ```
+
+```clojure
 :repositories [["jitpack" "https://jitpack.io"]]
 ```
  
@@ -85,9 +93,10 @@ libraryDependencies += "com.github.TeamKUN.TeamKUNPluginManager" % "KPMHooks" % 
 :dependencies [[com.github.TeamKUN.TeamKUNPluginManager/KPMHooks "{バージョン}]]
 ```
 
+```mdx-code-block
 </TabItem>
 </Tabs>
-  
+```
 
 ### ステップ１. KPM Hook を受け取るクラスを作成する
  
