@@ -1,4 +1,4 @@
-import BelowDocument from "/src/components/BelowDocument"
+import BelowDocument from "@site/src/components/BelowDocument"
 
 # GitHub 連携コマンド
 
@@ -6,13 +6,13 @@ KPM と GitHub を連携します。
 
 ---
 
-## コマンド概要 - <kbd>/kpm register</kbd>
+## コマンド概要 - <kbd>/kpm register</kbd> {#overview}
 
 KPM と GitHub を連携します。
 
 :::note
 
-`register` は、もともと [GitHub の OAuth トークン](/docs/expressions#github-oauth-トークン)を登録するだけのコマンドだったために、
+`register` は、もともと [GitHub の OAuth トークン](/docs/expressions#github-oauth-token)を登録するだけのコマンドだったために、
 この名前になっています。  
 しかし、現在は、トークンを生成する機能も含まれているためコマンド名の変更が検討されています。
 
@@ -20,29 +20,29 @@ KPM と GitHub を連携します。
 
 <BelowDocument docId="use-kpm/getting-started/link-github" />
 
-### エイリアス
+### エイリアス {#aliases}
 
 _なし_
 
-### コマンド構文
+### コマンド構文 {#syntax}
 
 - `register [GitHub OAuth トークン]`
 
-第一引数には [GitHub OAuth トークン](/docs/expressions#github-oauth-トークン)を指定できます。
+第一引数には [GitHub OAuth トークン](/docs/expressions#github-oauth-token)を指定できます。
 
 :::info
 
-引数なしで実行した場合、 [GitHub OAuth トークン](/docs/expressions#github-oauth-トークン) を自動で生成します。  
+引数なしで実行した場合、 [GitHub OAuth トークン](/docs/expressions#github-oauth-token) を自動で生成します。  
 その場合、表示された指示に従ってください。
 
 :::
 
-### 権限
+### 権限 {#permissions}
 
 - `kpm.register`
 - `kpm.*`
 
-### スクリーンショット
+### スクリーンショット {#screenshots}
 
 ![Token success#x200](images/register/success.png)
 ![Cancelled#x200](images/register/cancel.png)

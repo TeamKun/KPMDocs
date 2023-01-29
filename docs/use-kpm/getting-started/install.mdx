@@ -10,7 +10,7 @@ import BelowDocument from "@site/src/components/BelowDocument";
 
 ---
 
-## このページの前提要件
+## このページの前提要件 {#requirements}
 
 | 要件名                                                    | 要件                                               | 摘要                                                                                                                         |
 | :-------------------------------------------------------- | :------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
@@ -27,13 +27,13 @@ KPM は、 [PaperMC](https://www.papermc.io/) 以外のサーバ(例：Spigot, B
 
 ---
 
-## KPM をサーバに追加する
+## KPM をサーバに追加する {#install-kpm}
 
 プロサーバ管理者の朝は早い。曰く、 KPM をサーバにインストールしないと一日は始まらない。
 
-### ステップ 1：最新のプラグイン・アーティファクト をダウンロードする
+### ステップ 1：最新のプラグイン・アーティファクト をダウンロードする {#download-latest-artifact}
 
-1. [こちら](https://www.github.com/TeamKUN/TeamKUNPluginManager/releases/latest)にアクセスし、最新の[リリース](/docs/expressions#リリース)を確認します。
+1. [こちら](https://www.github.com/TeamKUN/TeamKUNPluginManager/releases/latest)にアクセスし、最新の[リリース](/docs/expressions#release)を確認します。
 2. Assets の下の `TeamKunPluginManager-<バージョン>.jar` をクリックするとダウンロードが始まります。
 3. 任意の場所に保存してください。
 
@@ -45,11 +45,11 @@ KPM は、 [PaperMC](https://www.papermc.io/) 以外のサーバ(例：Spigot, B
 
 :::
 
-### ステップ 2：サーバのプラグインフォルダに配置する
+### ステップ 2：サーバのプラグインフォルダに配置する {#put-in-server-plugin-folder}
 
 あなたが普段プラグインを追加するように、 KPM をサーバのプラグインフォルダ（例： `plugins/` ）に配置します。
 
-### ステップ 3：サーバを再起動する
+### ステップ 3：サーバを再起動する {#restart-server}
 
 サーバを再起動して KPM を有効化します。
 
@@ -63,17 +63,17 @@ KPM は、PlugMan 等を使用した動的再読み込みには対応してい�
 
 ---
 
-## KPM と GitHub を連携する
+## KPM と GitHub を連携する {#connect-kpm-github}
 
 KPM を使用するには、 GitHub と連携する必要があります。
 
-### ステップ 1：GitHub と連携する
+### ステップ 1：GitHub と連携する {#connect-github}
 
 以下のチュートリアルに従い、 KPM と GitHub を連携してください。
 
 <BelowDocument docId="use-kpm/getting-started/link-github" />
 
-### ステップ ２：プラグイン定義ファイルをアップデートする
+### ステップ ２：プラグイン定義ファイルをアップデートする {#update-plugin-definition-file}
 
 [エイリアス](/docs/use-kpm/features/alias) の定義ファイルをアップデートします。
 初期状態では、 [TeamKUN](https://github.com/TeamKUN) 公式で定義されたエイリアスが使用可能です。
@@ -82,7 +82,7 @@ KPM を使用するには、 GitHub と連携する必要があります。
 
 ---
 
-## KPM を設定する
+## KPM を設定する {#configure-kpm}
 
 KPM は初期状態でも問題なく使用できますが、いくつかの設定を行うことより便利に使用できます。
 
@@ -90,7 +90,7 @@ KPM は初期状態でも問題なく使用できますが、いくつかの設�
 
 ---
 
-## KPM を使う
+## KPM を使う {#use-kpm}
 
 KPM を使う準備が整いました！
 
@@ -101,7 +101,7 @@ KPM には他にも便利なコマンドがたくさんあります！
 
 <BelowDocument docId="use-kpm/commands/README" />
 
-### プラグインを開発していますか？
+### プラグインを開発していますか？ {#developer-notice}
 
 もしあなたがプラグイン開発者であれば、 KPM API を使用して KPM と連携したプラグインを開発できます。  
 例えば、必要な依存関係の取得元を定義したり、インストール時等々にあなたのプラグインの任意コードを実行できます。

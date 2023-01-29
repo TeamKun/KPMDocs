@@ -1,4 +1,4 @@
-import BelowDocument from "../../src/components/BelowDocument"
+import BelowDocument from "@site/src/components/BelowDocument"
 
 # KPM 用語集
 
@@ -6,11 +6,11 @@ import BelowDocument from "../../src/components/BelowDocument"
 
 ---
 
-## 基本用語一覧
+## 基本用語一覧 {#basics}
 
 ---
 
-### KPM
+### KPM {#kpm}
 
 Team<ins>K</ins>UN<ins>P</ins>lugin<ins>M</ins>anager の頭文字を取った略称です。  
 このドキュメントでは TeamKUNPluginManager を KPM と表記しています。適宜読み替えてください。
@@ -21,37 +21,37 @@ Team<ins>K</ins>UN<ins>P</ins>lugin<ins>M</ins>anager の頭文字を取った�
 
 :::
 
-### PaperMC
+### PaperMC {#papermc}
 
 [PaperMC](https://papermc.io/) は、[Spigot](https://www.spigotmc.org/) や [Bukkit](https://www.bukkit.org/) と並ぶ、
 [Minecraft](https://www.minecraft/net/) サーバーの実装です。  
-KPM は、 PaperMC 上でのみ動作します。詳しくは[こちら](/docs/use-kpm/getting-started/install.mdx#このページの前提要件)を参照してください。
+KPM は、 PaperMC 上でのみ動作します。詳しくは[こちら](/docs/use-kpm/getting-started/install.mdx#requirements)を参照してください。
 
-### GitHub
+### GitHub {#github}
 
 [GitHub](https://www.github.com/) は、[Microsoft](https://www.microsoft.com/ja-jp/) が運営する、プログラムのソースコードを管理するためのサービスです。  
 KPM では、[GitHub](https://www.github.com/) 上に公開されているプラグインをインストールできます。また、 KPM を使用するには [GitHub](https://www.github.com/) アカウントが必要です。  
-GitHub に関連する用語一覧は[こちら](#github-関連用語一覧)を参照してください。
+GitHub に関連する用語一覧は[こちら](#github-related)を参照してください。
 
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 
 ---
 
-## GitHub 関連用語一覧
+## GitHub 関連用語一覧 {#github-related}
 
-### GitHub OAuth トークン
+### GitHub OAuth トークン {#github-oauth-token}
 
 GitHub OAuth トークンは、[GitHub](#github) にログインするためのトークンです。  
 KPM では、 [GitHub](#github) と KPM を連携するために使用します。詳しくは[こちら](/docs/use-kpm/getting-started/link-github.mdx)を参照してください。
 
-### GitHub リポジトリ
+### GitHub リポジトリ {#github-repository}
 
 GitHub リポジトリは、[GitHub](#github) 上に公開されているプラグインのソースコードを管理するための場所です。  
-KPM では、 GitHub リポジトリ上に[リリース](#リリース)されているプラグインをインストールできます。詳しくは[こちら](#)を参照してください。
+KPM では、 GitHub リポジトリ上に[リリース](#release)されているプラグインをインストールできます。詳しくは[こちら](#)を参照してください。
 
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 
-### リリース
+### リリース {#release}
 
 リリースとは プラグインの機能に新しいバージョンを付けて公開することです。  
 KPM では、 GitHub リポジトリ上にリリースされているプラグインをインストールできます。詳しくは[こちら](#)を参照してください。
@@ -59,32 +59,32 @@ KPM では、 GitHub リポジトリ上にリリースされているプラグ�
 <!-- TODO: GitHubをつかったインストールのリンクを張る -->
 ---
 
-## KPM 関連用語一覧
+## KPM 関連用語一覧 {#kpm-related}
 
-### プラグイン解決(プラグインリゾルブ)
+### プラグイン解決(プラグインリゾルブ) {#plugin-resolve}
 
 KPM が[クエリ](#クエリ-クエリ文字列)からプラグインを一意に特定し、プラグインの情報を取得するまでの一連の処理のことです。  
 また、[プラグインリゾルバ](#プラグインリゾルバ) と呼ばれるモジュールでプラグインを解決します。
 
-### [クエリ](../use-kpm/features/query) \(クエリ文字列)
+### [クエリ](../use-kpm/features/query) \(クエリ文字列) {#query}
 
 クエリは、 KPM がプラグインを解決するために使用する文字列です。
 
 <BelowDocument docId="use-kpm/features/query" />
 
-### [エイリアス](../use-kpm/features/alias)
+### [エイリアス](../use-kpm/features/alias) {#alias}
 
 エイリアスは、プラグインやクエリに別名をつけられる機能です。
 
 <BelowDocument docId="use-kpm/features/alias/README" />
 
-### [プラグインリゾルバ](../use-kpm/features/resolver)
+### [プラグインリゾルバ](../use-kpm/features/resolver) {#plugin-resolver}
 
 プラグインリゾルバは、 KPM がプラグインを解決するために使用するモジュールです。
 
 <BelowDocument docId="use-kpm/features/resolver" />
 
-### リロード
+### リロード {#reload}
 
 プラグインを一度アンロードし、再度読み込むことをリロードと呼びます。
 
@@ -100,12 +100,12 @@ KPM が[クエリ](#クエリ-クエリ文字列)からプラグインを一意�
 6. プラグインを読み込む
 7. プラグインを有効化する
 
-### インストール
+### インストール {#install}
 
 KPM がプラグインをサーバーにサーバに追加する一連の流れをインストールと呼びます。  
-インストールの流れは[こちら](/docs/use-kpm/commands/install#インストールの流れ)を参照してください。
+インストールの流れは[こちら](/docs/use-kpm/commands/install#flow)を参照してください。
 
-### アンインストール
+### アンインストール {#uninstall}
 
 KPM がプラグインをサーバーから削除する一連の流れをアンインストールと呼びます。  
-アンインストールの流れは[こちら](/docs/use-kpm/commands/uninstall#アンインストールの流れ)を参照してください。
+アンインストールの流れは[こちら](/docs/use-kpm/commands/uninstall#flow)を参照してください。

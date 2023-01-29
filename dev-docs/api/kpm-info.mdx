@@ -12,19 +12,19 @@ import BelowDocument from "../../src/components/BelowDocument";
 
 ---
 
-## 概要
+## 概要 {#overview}
 
 KPM 情報ファイルは、プラグインについての注釈をKPM に与える機能です。プラグインの開発者が、自分のプラグインに埋め込んで使用します。   
 これにより、依存関係の適切な解決を行ったリ、サーバに未対応なプラグインのロードを防げます。
 
-## KPM 情報ファイルのスキーマ
+## KPM 情報ファイルのスキーマ {#schema}
 
 KPM 情報ファイルの [JSON スキーマ](https://json-schema.org/)は[こちら](https://github.com/TeamKun/TeamKUNPluginManager/blob/stable/kpm-info.json) から入手できます。
 エディタ等でこのスキーマをインポートして使用してください。
 
-## KPM 情報ファイルを記述する
+## KPM 情報ファイルを記述する {#write-kpm-info}
 
-### ステップ１： `kpm.yml` を作成する
+### ステップ１： `kpm.yml` を作成する {#create-kpm-yml}
 
 プラグインのビルドのリソースディレクトリ直下に、 `kpm.yml` を作成します。通常、 `src/main/resources/kpm.yml` に作成します。
 
@@ -34,7 +34,7 @@ KPM 情報ファイルの [JSON スキーマ](https://json-schema.org/)は[こ�
 
 :::
 
-### ステップ２： 必須 - KPM のバージョンを記述する
+### ステップ２： 必須 - KPM のバージョンを記述する {#write-kpm-version}
 
 KPM 情報ファイルには、対応する KPM のバージョンの記述が必須です。
 以下の機能早見表をもとに、対応する KPM のバージョンを記述してください。
@@ -64,7 +64,7 @@ kpm: "v3.0.0"
 
 ```
 
-### ステップ３： 任意 - プラグインの取得元を記述する
+### ステップ３： 任意 - プラグインの取得元を記述する {#write-resolve-query}
 
 KPM を使用してプラグインを自動でアップデートするためには、プラグインを取得するための[クエリ](/docs/use-kpm/features/query)を記述します。
 
@@ -82,14 +82,14 @@ update: "github>TeamKUN/ExamplePlugin"
 + プラグイン名と GitHub のリポジトリ名が一致している
 :::
 
-### ステップ4： 任意 - 追加の KPM 情報を記述する
+### ステップ4： 任意 - 追加の KPM 情報を記述する {#write-additional-info}
 
 他に必要な情報がある場合、[こちら](#kpm-情報ファイルに含められる情報)を参考に必要な情報を記述してください。
 
-## KPM 情報ファイルに含められる情報
+## KPM 情報ファイルに含められる情報 {#kpm-info-includes}
 
 KPM 情報ファイルは `kpm.yml` という名前の YAML ファイルです。  
-KPM 情報ファイルの記述法やチュートリアルは、[こちら](#kpm-情報ファイルを記述する)を参照してください。
+KPM 情報ファイルの記述法やチュートリアルは、[こちら](#write-kpm-info)を参照してください。
 
 :::caution
 
@@ -98,7 +98,7 @@ KPM 情報ファイルは、プラグインのルートディレクトリに配�
 
 :::
 
-### 対応する KPM バージョン
+### 対応する KPM バージョン {#kpm-version}
 
 プラグインがサーバの KPM に存在しない機能を使用している可能性を排除するために、KPM 情報ファイルには KPM のバージョンの指定が必須です。
 
@@ -117,18 +117,17 @@ KPM 版の Bukkit の `api-version` のようなものです。
 KPM は後方互換性を保証しています。そのため、`3.0.0` と記述した場合、 `3.0.0` 以上のバージョンの KPM であれば、プラグインは正常に読み込まれます。
 :::
 
-#### 例
+#### 例 {#kpm-version-example}
 
 ```yaml title="kpm.yml"
 kpm: v3.0.0
 ```
 
-### プラグインの解決クエリ
+### プラグインの解決クエリ {#plugin-resolve-query}
 
 プラグインのアップグレードを自動で行うために、 そのプラグインの解決[クエリ](/docs/use-kpm/features/query)を指定できます。
 
-
-#### 例
+#### 例 {#plugin-resolve-query-example}
 
 ```yaml title="kpm.yml"
 # ...
@@ -136,7 +135,7 @@ update: "github>TeamKUN/TeamKUNPluginManager"
 # ...
 ```
 
-### 依存先プラグインの解決クエリ
+### 依存先プラグインの解決クエリ {#depend-plugin-resolve-query}
 
 依存関係を適切に解決するために、依存先プラグインの解決[クエリ](/docs/use-kpm/features/query)を指定できます。この項目は任意です。  
 `dependencies` オブジェクトに、キーに依存先プラグインの名前、値にそのプラグインの解決クエリを指定します。
@@ -147,7 +146,7 @@ update: "github>TeamKUN/TeamKUNPluginManager"
 :::
 
 
-#### 例
+#### 例 {#depend-plugin-resolve-query-example}
 
 ```yaml title="kpm.yml"
 # ...
@@ -159,7 +158,7 @@ dependencies:
 # ...
 ```
 
-### KPM Hook リスナ
+### KPM Hook リスナ {#kpm-hook-listener}
 
 [KPM Hook](hook) を受け取るリスナを登録します。KPM Hook は、プラグインのインストール時、アンインストール時等に呼び出されるコードのことです。
 これを利用することで、対応したイベントの発生時にあなたのプラグインの任意コードを実行できます。  
@@ -167,7 +166,7 @@ dependencies:
 
 <BelowDocument docId={"api/hook"} /> 
 
-#### 例
+#### 例 {#kpm-hook-listener-example}
 
 ```yaml title="kpm.yml"
 # ...
@@ -176,7 +175,7 @@ hooks:
 # ...
 ```
 
-### プラグインのカスタムレシピ
+### プラグインのカスタムレシピ {#custom-recipe}
 
 プラグインが登録した（登録する予定の）カスタムレシピを指定します。  
 これを指定すると、プラグインが登録したカスタムレシピを KPM が認識し、アンインストール時に適切に削除します。
@@ -205,7 +204,7 @@ Minecraft の `名前空間名:レシピ名` \([NamespacedKey](https://hub.spigo
 
 例： `example_space`
 
-#### 例
+#### 例 {#custom-recipe-example}
 
 ```yaml title="kpm.yml"
 # ...
