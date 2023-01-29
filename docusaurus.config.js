@@ -159,17 +159,21 @@ const config = {
                 to: "/docs/home",
               },
               {
-                label: `KPM を使い始める`,
+                label: "KPM を使い始める",
                 to: "/docs/use-kpm/getting-started",
               },
               {
-                label: `コマンド一覧`,
+                label: "コマンド一覧",
                 to: "/docs/use-kpm/commands",
               },
               {
-                label: `KPM 用語集`,
+                label: "KPM 用語集",
                 to: "/docs/expressions",
               },
+              {
+                label: "Javadoc",
+                to: "/javadoc",
+              }
             ],
           },
           {

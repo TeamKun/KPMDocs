@@ -4,16 +4,27 @@ import RelatedFeatures from "@site/src/components/RelatedFeatures"
 
 # クエリ
 
-プラグインを一意に特定するための簡略化された文字列です。
+プラグインを一意に特定するための文字列です。
 
 ---
 
 ## 概要
 
-クエリは、プラグインを一意に特定し、ダウンロード用の直リンクを解決するために使用する文字列です。  
-これは、インストールコマンドの引数に指定して使用するものです。
+クエリは、プラグインを一意に特定し、ダウンロード用の直リンクを[解決](/docs/expressions/#プラグイン解決プラグインリゾルブ)するために使用する文字列です。  
+[インストールコマンド](/docs/use-kpm/commands/install)等で使用します。
 
 <Since version={"v3"} />
+
+---
+
+## クエリの例
+
+- `https://github.com/Example/ExamplePlugin`  
+GitHub で解決します。
+- `https://www.spigotmc.org/resources/example.12345==1.0.0`  
+バージョンを指定して SpigotMC で解決します。
+- `curseforge>https://dev.bukkit.org/projects/example-12345==123456`  
+完全修飾クエリの例です。CurseForge(DevBukkit) で解決します。
 
 ---
 
@@ -45,17 +56,6 @@ import RelatedFeatures from "@site/src/components/RelatedFeatures"
 これらすべてが指定されたクエリを、\*\***完全修飾クエリ**\*\*と呼びます。
 
 :::
-
----
-
-## クエリの例
-
-- `https://github.com/Example/ExamplePlugin`  
-  GitHub で解決します。
-- `https://www.spigotmc.org/resources/example.12345==1.0.0`  
-  バージョンを指定して SpigotMC で解決します。
-- `curseforge>https://dev.bukkit.org/projects/example-12345==123456`  
-  完全就職クエリの例です。CurseForge(DevBukkit) で解決します。
 
 ---
 
