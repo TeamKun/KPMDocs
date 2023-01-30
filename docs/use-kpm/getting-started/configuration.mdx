@@ -43,7 +43,7 @@ KPM の設定ファイルは `plugins/TeamKUNPluginManager/config.yml` の１つ
 
 ---
 
-#### `paths`.`database`.`metadata`
+#### `paths`.`database`.`metadata` {#paths-database-metadata}
 
 プラグイン固有のメタデータを管理するデータベースのパスを設定します。
 
@@ -56,7 +56,7 @@ KPM の設定ファイルは `plugins/TeamKUNPluginManager/config.yml` の１つ
 
 ---
 
-#### `paths`.`database`.`aliases`
+#### `paths`.`database`.`aliases` {#paths-database-aliases}
 
 プラグインのエイリアスを管理するデータベースのパスを設定します。
 
@@ -73,7 +73,7 @@ KPM と GitHub を連携する際に使用される認証トークン（パス�
 
 ---
 
-#### `paths`.`token`.`body`
+#### `paths`.`token`.`body` {#paths-token-body}
 
 トークン自体が保存されるファイルのパスを設定します。  
 このファイルは [AES](https://ja.wikipedia.org/wiki/Advanced_Encryption_Standard) で暗号化されています。
@@ -90,7 +90,7 @@ KPM と GitHub を連携する際に使用される認証トークン（パス�
 
 ---
 
-#### `paths`.`token`.`decryptionKey`
+#### `paths`.`token`.`decryptionKey` {#paths-token-decryptionKey}
 
 トークンを復号化するためのキーが保存されるファイルのパスを設定します。
 
@@ -116,7 +116,7 @@ KPM と GitHub を連携する際に使用される認証トークン（パス�
 
 KPM が発行する HTTP リクエストをカスタマイズします。
 
-#### `http`.`userAgent`
+#### `http`.`userAgent` {#http-userAgent}
 
 HTTP リクエストのヘッダーである、 `User-Agent` を設定します。  
 
@@ -133,7 +133,7 @@ HTTP リクエストのヘッダーである、 `User-Agent` を設定します�
 
 ---
 
-#### `http`.`timeout`
+#### `http`.`timeout` {#http-timeout}
 
 HTTP リクエストのタイムアウトを設定します。この値は、ミリ秒で指定します。
 
@@ -142,7 +142,7 @@ HTTP リクエストのタイムアウトを設定します。この値は、ミ
 
 ---
 
-#### `http`.`maxRedirects`
+#### `http`.`maxRedirects` {#http-maxRedirects}
 
 HTTP リクエストのリダイレクトの最大数を設定します。
 
@@ -159,7 +159,7 @@ HTTP リクエストのリダイレクトの最大数を設定します。
 
 ### \[解決] GitHub の組織名の省略 {#resolve}
 
-#### `resolve`.`githubUsers`
+#### `resolve`.`githubUsers` {#resolve-githubUsers}
 
 この設定に記述した組織名は、[クエリの解決](/docs/expressions/#plugin-resolve) で省略できるようになります。
 組織名の省略や、 GitHub の優越については、[こちら](/docs/use-kpm/features/query#github-prefence)を参照してください。
@@ -173,7 +173,7 @@ HTTP リクエストのリダイレクトの最大数を設定します。
 
 [エイリアス](/docs/use-kpm/features/alias)に関する設定です。
 
-#### `resolve`.`aliases`.`sources`
+#### `resolve`.`aliases`.`sources` {#resolve-aliases-sources}
 
 エイリアスを定義する データセット（エイリアス定義ファイル）のリモートを設定します。  
 この設定は、オブジェクトの配列で記述します。
@@ -194,7 +194,7 @@ HTTP リクエストのリダイレクトの最大数を設定します。
 
 KPM による管理や、インストーラの操作から除外するプラグインを設定します。  
 
-#### `exclude`.`pluginNames`
+#### `exclude`.`pluginNames` {#exclude-pluginNames}
 
 除外するプラグインの名前です。
 
@@ -213,7 +213,7 @@ KPM の製品に関する設定です。
 
 :::
 
-#### `kpm`
+#### `kpm` {#kpm}
 
 KPM のバージョンを設定します。
 
