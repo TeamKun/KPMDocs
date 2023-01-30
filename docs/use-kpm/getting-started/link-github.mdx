@@ -10,14 +10,16 @@ sidebar_position: 2
 
 ## このページの前提要件 {#requirements}
 
-| 要件名                                      | 要件                                               | 摘要                                                                                      |
-| :------------------------------------------ | :------------------------------------------------- | :---------------------------------------------------------------------------------------- |
-| TeamKUNPluginManager                        | 2.5+                                               | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install)。 |
-| [GitHub](https://www.github.com) アカウント               | 有効な [GitHub](https://www.github.com) アカウント | プラグインの解決に [GitHub](https://www.github.com) アカウントが必要です。                                                   |
+| 要件名                                    | 要件                                         | 摘要                                                                |
+|:---------------------------------------|:-------------------------------------------|:------------------------------------------------------------------|
+| TeamKUNPluginManager                   | 2.5+                                       | KPM をまだインストールしていない方は[こちら](/docs/use-kpm/getting-started/install)。 |
+| [GitHub](https://www.github.com) アカウント | 有効な [GitHub](https://www.github.com) アカウント | プラグインの解決に [GitHub](https://www.github.com) アカウントが必要です。            |
 
 ---
 
 ## GitHub と連携する {#connect-github}
+
+KPM を正しく使用するには GitHub と連携する必要があります。以下のステップを実行し、あなたのアカウントや組織と KPM を連携してください。
 
 ### ステップ 1：GitHub アカウントを作成する {#create-github-account}
 
@@ -32,7 +34,7 @@ GitHub OAuth トークンをすでに持っている場合は、[方式 2](#regi
 
 :::
 
-#### 方式 1： KPM で GitHub OAuth トークンを生成する {#generate-with-kpm}
+### 方式 1：KPM でトークンを生成する {#generate-with-kpm}
 
 1. KPM が起動したサーバで [<kbd>/kpm register</kbd>](/docs/use-kpm/commands/register) を実行します。
 2. 画面の指示に従って, <kbd>y</kbd> を入力します。
@@ -47,10 +49,11 @@ GitHub OAuth トークンをすでに持っている場合は、[方式 2](#regi
 
 6. `S: トークンの登録に成功しました。` と表示されたら完了です。
 
-#### 方式 2: すでにある GitHub OAuth トークンを KPM に登録する {#register-existing-github-oauth-token}
+### 方式 2：持っているトークンを KPM に登録する {#register-existing-github-oauth-token}
 
 1. KPM が起動したサーバで `/kpm register <トークン>` を実行します。
-2. `S: トークンの登録に成功しました。` と表示されたら完了です。
+2. KPM はあなたが提供したトークンの有効性を確認します。
+3. `S: トークンの登録に成功しました。` と表示されたら完了です。
 
 ---
 
