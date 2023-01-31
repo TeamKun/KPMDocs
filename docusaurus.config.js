@@ -159,17 +159,21 @@ const config = {
                 to: "/docs/home",
               },
               {
-                label: `KPM を使い始める`,
+                label: "KPM を使い始める",
                 to: "/docs/use-kpm/getting-started",
               },
               {
-                label: `コマンド一覧`,
+                label: "コマンド一覧",
                 to: "/docs/use-kpm/commands",
               },
               {
-                label: `KPM 用語集`,
+                label: "KPM 用語集",
                 to: "/docs/expressions",
               },
+              {
+                label: "Javadoc",
+                to: "/javadoc",
+              }
             ],
           },
           {
@@ -230,6 +234,13 @@ const config = {
           hideable: true,
         },
       },
+      algolia: {
+        appId: "B4E6A35GQI",
+        apiKey: "ed14a9e3540c2de22c5805d2cde624e4",
+        indexName: "kpm-kunlab",
+        contextualSearch: true,
+        searchPagePath: "search",
+      }
     }),
 }
 

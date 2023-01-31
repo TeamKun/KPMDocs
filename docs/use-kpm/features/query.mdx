@@ -4,20 +4,31 @@ import RelatedFeatures from "@site/src/components/RelatedFeatures"
 
 # クエリ
 
-プラグインを一意に特定するための簡略化された文字列です。
+プラグインを一意に特定するための文字列です。
 
 ---
 
-## 概要
+## 概要 {#overview}
 
-クエリは、プラグインを一意に特定し、ダウンロード用の直リンクを解決するために使用する文字列です。  
-これは、インストールコマンドの引数に指定して使用するものです。
+クエリは、プラグインを一意に特定し、ダウンロード用の直リンクを[解決](/docs/expressions/#plugin-resolve)するために使用する文字列です。  
+[インストールコマンド](/docs/use-kpm/commands/install)等で使用します。
 
 <Since version={"v3"} />
 
 ---
 
-## クエリの書式
+## クエリの例 {#example}
+
+- `https://github.com/Example/ExamplePlugin`  
+GitHub で解決します。
+- `https://www.spigotmc.org/resources/example.12345==1.0.0`  
+バージョンを指定して SpigotMC で解決します。
+- `curseforge>https://dev.bukkit.org/projects/example-12345==123456`  
+完全修飾クエリの例です。CurseForge(DevBukkit) で解決します。
+
+---
+
+## クエリの書式 {#query-format}
 
 プラグイン解決クエリは以下の要素を含みます：
 
@@ -48,18 +59,7 @@ import RelatedFeatures from "@site/src/components/RelatedFeatures"
 
 ---
 
-## クエリの例
-
-- `https://github.com/Example/ExamplePlugin`  
-  GitHub で解決します。
-- `https://www.spigotmc.org/resources/example.12345==1.0.0`  
-  バージョンを指定して SpigotMC で解決します。
-- `curseforge>https://dev.bukkit.org/projects/example-12345==123456`  
-  完全就職クエリの例です。CurseForge(DevBukkit) で解決します。
-
----
-
-## GitHub の優越
+## GitHub の優越 {#github-preference}
 
 GitHub 上のプラグインを解決する場合は、以下の省略記法が使用できます。  
 この場合においても、リゾルバ名とバージョンを指定できます。
@@ -86,7 +86,7 @@ GitHub 上のプラグインを解決する場合は、以下の省略記法が�
 
 ---
 
-## [バッカス・ナウア記法(BNF)](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%83%E3%82%AB%E3%82%B9%E3%83%BB%E3%83%8A%E3%82%A6%E3%82%A2%E8%A8%98%E6%B3%95)
+## [バッカス・ナウア記法(BNF)](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%83%E3%82%AB%E3%82%B9%E3%83%BB%E3%83%8A%E3%82%A6%E3%82%A2%E8%A8%98%E6%B3%95) {#query-bnf}
 
 ```bnf
 <url> ::= <see https://www.w3.org/Addressing/URL/5_BNF.html>
@@ -119,6 +119,6 @@ GitHub 上のプラグインを解決する場合は、以下の省略記法が�
 
 ---
 
-## 関連項目
+## 関連項目 {#related}
 
 <RelatedFeatures docNames={["resolver", "alias/README"]} headerLevel={0} />

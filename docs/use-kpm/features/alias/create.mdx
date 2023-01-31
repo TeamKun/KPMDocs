@@ -2,13 +2,13 @@ import Since from "@site/src/components/Since"
 
 # エイリアスを作成する
 
-[エイリアス](../alias)を作成する方法を説明しています。
+[エイリアス](.)を作成する方法を説明しています。
 
 ---
 
 <Since version={"v3"} />
 
-## このページの前提要件
+## このページの前提要件 {#requirements}
 
 | 要件名                                      | 要件                                               | 摘要                                                                       |
 | :------------------------------------------ | :------------------------------------------------- | :------------------------------------------------------------------------- |
@@ -16,16 +16,16 @@ import Since from "@site/src/components/Since"
 
 ---
 
-## エイリアスマネージャを作成する
+## エイリアスマネージャを作成する {#create-alias-manager}
 
 エイリアスの作成をしたことがない場合は、まずエイリアスマネージャを作成する必要があります。  
 以下のステップを実行してください。
 
 :::info
-もしあなたが [KUNLab](https://github.com/TeamKUN) のメンバーであれば、このセクションを飛ばして [>**エイリアスを作成する**<](#エイリアスを作成する-1) に進んでください。
+もしあなたが [KUNLab](https://github.com/TeamKUN) のメンバーであれば、このセクションを飛ばして [>**エイリアスを作成する**<](#create-alias) に進んでください。
 :::
 
-### ステップ１. エイリアスマネージャ・リポジトリを作成する
+### ステップ１. エイリアスマネージャ・リポジトリを作成する {#create-repository}
 
 [このテンプレート・リポジトリ](https://github.com/TeamKun/KPMAliasManager)を使用して、新しいリポジトリを作成します。
 
@@ -38,7 +38,7 @@ import Since from "@site/src/components/Since"
    :::
    ![Screen shot#450x](images/alias-manager/create-repo.png)
 
-### ステップ２. 設定を編集する
+### ステップ２. 設定を編集する {#edit-settings}
 
 リポジトリを作成したら、初期設定を行います。
 
@@ -65,7 +65,7 @@ import Since from "@site/src/components/Since"
     # ...
   ```
   
-  詳細な設定の一覧は、[こちら](#global_constantspy-について)を参照してください。
+  詳細な設定の一覧は、[こちら](#global-constants-info)を参照してください。
 
 3. 右上の `Commit changes…` をクリックし、 表示されるダイアログの `Commit changes` をクリックします。
   
@@ -76,7 +76,7 @@ import Since from "@site/src/components/Since"
   ![Screen shot#450x250](images/alias-manager/commit-changes.png)
   ![Screen shot#x250](images/alias-manager/commit-confirm.png)
 
-### ステップ３. Issue label を作成する
+### ステップ３. Issue label を作成する {#create-labels}
 
 1. リポジトリのトップページに移動し、 `Issues` をクリックします。  
    ![Screen shot#450x](images/issues.png)
@@ -101,7 +101,7 @@ import Since from "@site/src/components/Since"
   作成したラベルは以下のようになります。  
    ![Screen shot#450x](images/alias-manager/labels.png)
 
-### ステップ４. KPM に登録する
+### ステップ４. KPM に登録する {#register-to-kpm}
 
 1. KPM の設定ファイル \(config.yml) を開き、以下の箇所を編集します。
    - `<エイリアスマネージャの任意の名前>` には、任意の文字列を指定します。
@@ -135,11 +135,11 @@ import Since from "@site/src/components/Since"
 
 ---
 
-## エイリアスを作成する
+## エイリアスを作成する {#create-alias}
 
 エイリアスの追加は、GitHub の Issue 機能を使用してリクエストします。以下の手順でリクエストを作成してください。
 
-### リクエストを送信する
+### リクエストを送信する {#send-request}
 
 1. リポジトリのトップページに移動し、 `Issues` をクリックします。
    :::info
@@ -163,22 +163,22 @@ import Since from "@site/src/components/Since"
 5. 画面下部の `Submit new issue` をクリックします。  
    ![Screen shot#450x](images/request/request-created.png)
 
-### トリアージの結果
+### トリアージの結果 {#triage-result}
 
 リクエストのトリアージが完了すると、ラベルが付与され、 github-actions からのコメントが追加されます。  
 トリアージ完了時には、 Issue が閉じられ、会話が制限されます。
 
-#### 承認された場合
+#### 承認された場合 {#triage-approved}
 
 ![Screen shot#485x](images/request/triage/approved.png)
 
-#### エイリアスが作成された場合
+#### エイリアスが作成された場合 {#alias-added}
 
 承認後エイリアスが作成されると、以下のようなコメントが追加されます。
 
 ![Screen shot#485x](images/request/triage/alias-created.png)
 
-#### 拒否された場合
+#### 拒否された場合 {#triage-rejected}
 
 ![Screen shot#485x](images/request/triage/denied-for-duplicate.png)
 
@@ -194,9 +194,9 @@ import Since from "@site/src/components/Since"
 
 ---
 
-## 詳細情報
+## 詳細情報 {#details}
 
-### global_constants.py について
+### global_constants.py について {#global-constants-info}
 
 `global_constants.py` は、エイリアスマネージャの設定ファイルです。設定の一覧は以下の通りです。
 

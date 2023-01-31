@@ -1,0 +1,43 @@
+import BelowDocument from "@site/src/components/BelowDocument";
+
+
+# よくある質問
+
+KPM を使用する上で想定される問題とその解決策を説明します。
+
+---
+
+## 概要 {#overview}
+
+KPM を使用する上でよくある質問<small>\[要出典]</small>（ n=0 ）をまとめました。
+
+## 全般 {#general}
+
+### Q. KPM のインストール方法を教えてください。 {#how-to-install-kpm}
+
+<BelowDocument docId={"use-kpm/getting-started/install"} />
+
+### Q. KPM と GitHub を連携するにはどうすればいいですか？ {#how-to-link-github}
+
+<BelowDocument docId={"use-kpm/getting-started/link-github"} />
+
+## プラグインの変更 {#plugin-mod}
+
+### Q. KPM でプラグインをインストールするにはどうすればいいですか？ {#how-to-install-plugin}
+
+<BelowDocument docId={"use-kpm/commands/install"} />
+
+### Q. KPM でプラグインをアンインストールするにはどうすればいいですか？ {#how-to-uninstall-plugin}
+
+<BelowDocument docId={"use-kpm/commands/uninstall"} />
+
+### Q. サーバがオフラインのときにプラグインを変更したらサーバが壊れませんか？ {#offline-plugin-modification}
+
+KPM によるもの以外の操作によりサーバのプラグインを変更された場合、それらのプラグインのメタデータ及び依存関係ツリーは再構築されます。  
+そのため、サーバ管理者は安全に **KPM を使用せずに**プラグインを変更できます。
+
+<BelowDocument docId={"use-kpm/features/pl-meta-and-deps-tree"} anchor={"build-timing"} />
+
+## 開発者向け {#for-developer}
+
+### Q. KPM はどのように動作していますか？ {#how-kpm-works}
