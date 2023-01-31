@@ -234,6 +234,13 @@ const config = {
           hideable: true,
         },
       },
+      algolia: {
+        appId: "B4E6A35GQI",
+        apiKey: "ed14a9e3540c2de22c5805d2cde624e4",
+        indexName: "kpm-kunlab",
+        contextualSearch: true,
+        searchPagePath: "search",
+      }
     }),
 }
 
