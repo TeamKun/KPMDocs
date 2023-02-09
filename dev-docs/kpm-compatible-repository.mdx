@@ -1,0 +1,47 @@
+import BelowDocument from "@site/src/components/BelowDocument";
+import RelatedFeatures from "@site/src/components/RelatedFeatures";
+
+# KPM に対応したリポジトリを構築する
+
+KPM のインストールに対応した GitHub のリポジトリを構築します。
+
+---
+
+## 概要
+
+KPM に対応したリポジトリを構築して GitHub からかんたんにプラグインをインストールできるようにします。
+
+## KPM に対応したリポジトリの条件
+
+リポジトリを KPM に対応させるには、以下の条件を満たす必要があります。
+
+### プラグインを1つ以上リリースしている
+
+KPM はプラグインを GitHub のリリースから取得します。そのため、リリースを作成していないリポジトリは KPM に対応していません。
+
+### リリースのタグとプラグインのバージョンが一致している
+
+**\*\*リリースのタグとプラグインのバージョンは一致している必要があります(MUST)\*\***。  
+
+:::info
+
+タグないしはバージョンの `v` 接頭辞の有無は問いません。
+
+<BelowDocument docId="plugin-dev-caution" anchor="version-v-prefix" />
+
+:::
+
+### リリースにプラグインのアーティファクト（e.g. JAR ファイル）を含める
+
+KPM は、リポジトリのリリースに含まれるプラグインのアーティファクトをダウンロードしてインストールします。
+そのため、 KPM に対応させるにはリリースにプラグインのアーティファクトを含める必要があります。
+
+:::tip
+
+1 つのリリースに複数のアーティファクトを含める場合は、
+確実なプラグインのインストールのために[こちら](/docs/use-kpm/features/resolver#github)の条件を参考にしてください。
+:::
+
+## 関連項目
+
+<RelatedFeatures docNames={["plugin-dev-caution"]} headerLevel={0} /> 
