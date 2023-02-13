@@ -59,6 +59,9 @@ const config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
         blog: false,
+        googleTagManager: {
+          containerId: "GTM-W7BTRRD",
+        }
       },
     ],
   ],
@@ -240,9 +243,6 @@ const config = {
         indexName: "kpm-kunlab",
         contextualSearch: true,
         searchPagePath: "search",
-      },
-      googleTagManager: {
-        containerId: "GTM-W7BTRRD",
       }
     }),
 }
