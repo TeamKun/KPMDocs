@@ -76,15 +76,21 @@ const config = {
         ],
       },
     ],
-      [
-        "@docusaurus/plugin-content-docs",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+          id: "dev",
+          path: "dev-docs",
+          routeBasePath: "dev-docs",
+          sidebarPath: require.resolve("./sidebars.ts"),
+      }
+    ],
+    [
+        "@docusaurus/plugin-google-tag-manager",
         {
-            id: "dev",
-            path: "dev-docs",
-            routeBasePath: "dev-docs",
-            sidebarPath: require.resolve("./sidebars.ts"),
+          containerId: "GTM-W7BTRRD",
         }
-      ]
+    ]
   ],
 
   themeConfig:
@@ -240,9 +246,6 @@ const config = {
         indexName: "kpm-kunlab",
         contextualSearch: true,
         searchPagePath: "search",
-      },
-      googleTagManager: {
-        containerId: "GTM-W7BTRRD",
       }
     }),
 }
