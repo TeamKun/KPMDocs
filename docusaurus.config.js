@@ -240,6 +240,9 @@ const config = {
         indexName: "kpm-kunlab",
         contextualSearch: true,
         searchPagePath: "search",
+      },
+      googleTagManager: {
+        trackingID: "GTM-W7BTRRD",
       }
     }),
 }

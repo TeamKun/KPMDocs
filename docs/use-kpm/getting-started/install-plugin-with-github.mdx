@@ -1,0 +1,66 @@
+import BelowDocument from "@site/src/components/BelowDocument";
+import RelatedFeatures from "@site/src/components/RelatedFeatures";
+
+# GitHub からプラグインをインストールする
+
+このページでは GitHub 上に公開されているプラグインをインストールする方法を説明しています。
+
+---
+
+## このページの前提要件 {#requirements}
+
+| 要件名                                              | 要件                                         | 摘要                                                                                              |
+|:-------------------------------------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------------|
+| [GitHub](https://www.github.com) アカウント           | 有効な [GitHub](https://www.github.com) アカウント | プラグインの解決に [GitHub](https://www.github.com) アカウントが必要です。                                          |
+
+## 概要
+
+KPM は、 GitHub 上に公開されているプラグインを簡単な[クエリ](/docs/use-kpm/features/query)
+でインストールできます。
+
+:::caution
+
+[KPM に対応したリポジトリ](#)で公開されているプラグインのみが対象です。  
+[KUN Lab](https://github.com/TeamKUN) で公開されているプラグインは、概ね KPM に対応しています。
+(Lab メンバーの場合は, 上記の
+
+:::
+
+## インストール方法 {#install}
+
+### ステップ１. インストールするプラグインの GitHub リポジトリを確認する {#check-repo}
+
+インストールしたいプラグインの GitHub リポジトリのトップを開きます。  
+ここでは、[KPM に対応したリポジトリ](#)で公開されているプラグインの例として, 
+[https://github.com/PeyaPeyaPeyang/KPMTester](https://github.com/PeyaPeyaPeyang/KPMTester) を使用して説明します。
+
+### ステップ２. インストールコマンドを発行する {#issue-command}
+
+[インストール コマンド](/docs/use-kpm/commands/install)を発行します。  
+`/kpm install <リポジトリのURL>` (例：`/kpm install https://github.com/PeyaPeyaPeyang/KPMTester`)
+
+#### URL を短縮する {#shorten-url}
+
+プラグインを GitHub からインストールする場合、次のような短縮形が使用できます：
+
++ `<ユーザ/組織名>/<リポジトリ名>`  
+  例： `/kpm install PeyaPeyaPeyang/KPMTester`
++ `<リポジトリ名>`  
+  例： `/kpm install KPMTester
+
+  :::caution
+  この形式を使用するには KPM が適切に構成されている必要があります。
+  <BelowDocument docId="use-kpm/getting-started/configuration" />
+  :::
+
+  :::tip
+   [KUN Lab](https://github.com/TeamKUN/) 組織で管理されているプラグインは、 初期状態の KPM でもインストールできます。
+  :::
+
+## 関連項目 {#related}
+
+<RelatedFeatures headerLevel={0} docNames={[
+  "use-kpm/features/query",
+  "use-kpm/commands/install",
+  "use-kpm/getting-started/configuration",
+]} />

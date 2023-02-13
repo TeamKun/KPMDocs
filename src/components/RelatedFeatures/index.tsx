@@ -24,10 +24,10 @@ const RelatedFeatures: React.FC<RelatedFeatureProps> = ({ docNames, headerLevel 
   const Header = `h${headerLevel}` as keyof JSX.IntrinsicElements
 
   const DocCards = docs.map((doc) => {
-    let path = useLocalPathname().split("/").slice(0, -1).join("/") + "/" + doc.id
+    let path = useLocalPathname().split("/").slice(0, 2).join("/") + "/" + doc.id
 
     return (
-      <span style={{ display: "inline-block", width: "250px", marginRight: "1rem" }}>
+      <span style={{ display: "inline-block", width: "250px", marginRight: "1rem" }} key={"related-" + doc.id}>
         <DocCard
           item={{
             type: "link",
