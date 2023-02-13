@@ -242,7 +242,7 @@ const config = {
         searchPagePath: "search",
       },
       googleTagManager: {
-        trackingID: "GTM-W7BTRRD",
+        containerId: "GTM-W7BTRRD",
       }
     }),
 }
