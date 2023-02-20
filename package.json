@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/TeamKUN/KPMDocs",
   "dependencies": {
-    "@docusaurus/core": "2.2.0",
-    "@docusaurus/preset-classic": "2.2.0",
-    "@docusaurus/theme-common": "^2.2.0",
-    "@docusaurus/plugin-google-tag-manager": "^2.2.0",
-    "@docusaurus/plugin-client-redirects": "^2.2.0",
+    "@docusaurus/core": "2.3.1",
+    "@docusaurus/preset-classic": "2.3.1",
+    "@docusaurus/theme-common": "^2.3.1",
+    "@docusaurus/plugin-google-tag-manager": "^2.3.1",
+    "@docusaurus/plugin-client-redirects": "^2.3.1",
     "@fec/remark-a11y-emoji": "^3.1.0",
     "@fontsource/jetbrains-mono": "^4.5.11",
     "@fortawesome/fontawesome-free": "^6.2.1",
@@ -37,7 +37,7 @@
     "toml": "^3.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.2.0",
+    "@docusaurus/module-type-aliases": "^2.3.1",
     "@microsoft/eslint-formatter-sarif": "^3.0.0",
     "@tsconfig/docusaurus": "^1.0.5",
     "@types/eslint": "^8.4.10",
