@@ -99,15 +99,15 @@ libraryDependencies += "com.github.TeamKUN.TeamKUNPluginManager" % "KPMHooks" % 
 
 ### ステップ１. KPM Hook を受け取るクラスを作成する {#create-hook-recipient}
  
-KPM Hook の受け取りには、抽象クラス [KPMHookRecipient](javadoc:net.kunmc.lab.kpm.hook.KPMHookRecipient) を継承したクラスを作成します。  
-コンストラクタは `public` で、 [KPMRegistry](javadoc:net.kunmc.lab.kpm.KPMRegistry)\(NotNull) のみを引数に取ってください。
-また、 [KPMRegistry](javadoc:net.kunmc.lab.kpm.KPMRegistry)のみを引数に取るスーパーコールをコンストラクタ内で行ってください。
+KPM Hook の受け取りには、抽象クラス [KPMHookRecipient](javadoc:org.kunlab.kpm.hook.KPMHookRecipient) を継承したクラスを作成します。  
+コンストラクタは `public` で、 [KPMRegistry](javadoc:org.kunlab.kpm.KPMRegistry)\(NotNull) のみを引数に取ってください。
+また、 [KPMRegistry](javadoc:org.kunlab.kpm.KPMRegistry)のみを引数に取るスーパーコールをコンストラクタ内で行ってください。
   
 ```java
 
 package com.example.myplugin;
 
-import net.kunmc.lab.kpm.hook.KPMHookRecipient;
+import org.kunlab.kpm.hook.KPMHookRecipient;
 
 public class ExampleKPMHookRecipient implements KPMHookRecipient {
 
@@ -127,13 +127,13 @@ public class ExampleKPMHookRecipient implements KPMHookRecipient {
 ### ステップ２. KPM Hook を受け取るメソッドを作成する {#create-hook-receiving-method}
   
 KPM Hook を受け取るには、 Hook と一対一で対応した `public` メソッドが必要です。  
-各メソッドには、 [HookListener](javadoc:net.kunmc.lab.kpm.hook.HookListener) アノテーションを付与し、
-引数には[KPMHook](javadoc:net.kunmc.lab.kpm.hook.KPMHook) を実装した各 Hook オブジェクトを１のみ受け取ってください。
+各メソッドには、 [HookListener](javadoc:org.kunlab.kpm.hook.HookListener) アノテーションを付与し、
+引数には[KPMHook](javadoc:org.kunlab.kpm.hook.KPMHook) を実装した各 Hook オブジェクトを１のみ受け取ってください。
   
-以下の例では、 [PluginInstalledHook](javadoc:net.kunmc.lab.kpm.hook.hooks.PluginInstalledHook) を受け取るメソッドを作成しています。
+以下の例では、 [PluginInstalledHook](javadoc:org.kunlab.kpm.hook.hooks.PluginInstalledHook) を受け取るメソッドを作成しています。
   
 ```java
-import net.kunmc.lab.kpm.hook.HookListener;
+import org.kunlab.kpm.hook.HookListener;
   
 public class ExampleKPMHookRecipient implements KPMHookRecipient {
     public ExampleKPMHookRecipient(KPMRegistry registry) {
@@ -149,7 +149,7 @@ public class ExampleKPMHookRecipient implements KPMHookRecipient {
   
 :::tip
   
-[こちら](javadoc:net.kunmc.lab.kpm.hook.hooks) に含まれる全てのクラスが利用できます。
+[こちら](javadoc:org.kunlab.kpm.hook.hooks) に含まれる全てのクラスが利用できます。
 また、一部の Hook の接尾辞にある `Pre` と `Post` は、それぞれ対象の操作の前後に呼ばれるフックを表します。
   
 :::

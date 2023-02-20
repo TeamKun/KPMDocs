@@ -15,5 +15,13 @@
             "KPM Registry の実装",
             "デバッグ用プロパティ"
         ]
+    },
+    {
+        "version": "v3.0.0-pre10",
+        "releaseDate": 1676812830,
+        "mainFeatures": [
+            "**多言語化**",
+            "関西弁"
+        ]
     }
 ]
