@@ -1,0 +1,135 @@
+import BelowDocument from "@site/src/components/BelowDocument";
+
+# KPM の多言語対応 (Localization)
+
+このページでは、 KPM の多言語対応について説明します。
+
+---
+
+## 概要{#overview}
+
+KPM では、全ての出力をいくつかの言語に変更できます。また、初期状態では日本語が選択されています。
+
+## 対応している言語一覧 {#supported-languages}
+
++ `ja_JP` - 日本語(デフォルト)
++ `en_US` - English
++ `ja_KS` - 関西弁(大阪あたり)
+
+## 言語を変更する {#change-language}
+
+<BelowDocument docId={ "use-kpm/getting-started/configuration" } anchor={ "interface-lang" } />
+
+## 言語を追加する {#add-language}
+
+言語を追加するには、適切な言語ファイルを記述し、設定を変更する必要があります。
+
+### 言語ファイルの作成 {#create-language-file}
+
+言語ファイルのフォーマットは、標準的な Minecraft 言語ファイル (.lang) です。  
+キーと値を `=` で区切り、改行で区切って記述します。キーはスネークケースで記述します。
+これらを記述したファイルを UTF-8 フォーマットで保存し、 `(KPMのjar).jar/lang/` もしくは `plugins/TeamKUNPluginManager/lang/` に `言語名.lang` という名前で保存します。
+
+例えば、 日本語の言語ファイルは以下のようになっています。（一部抜粋）
+
+```properties
+notice.token.unset=GitHub トークンが設定されていません。
+notice.token.unset.suggest=GitHub トークンを発行または設定するには %%command%% を実行してください。
+notice.token.dead=指定されている GitHub トークンは有効期限が切れているか、無効です。
+notice.token.dead.suggest=GitHub トークンを再発行または設定するには %%command%% を実行してください。
+notice.plugin.removable=以下のプラグインがインストールされていますが、もう必要ありません。
+notice.plugin.removable.suggest=これを削除するには、 '%%green%%%%command%%%%reset%%' を実行してください。
+```
+
+### メッセージの変数について {#message-variables}
+
+KPM の言語ファイルには、変数を用いて記述する場面が多々あります。
+変数は、 `%%` で囲まれた文字列で表され、`.`, `_` を含む英小文字で構成されています。
+
+:::tip
+１つのメッセージで使用できる変数は限られています。  
+例えば `notice.token.unset.suggest` メッセージでは、 `%%command%%` という名前の変数と色値（後述）および言語値（後述）のみ使用できます。
+:::
+
+:::warn
+翻訳時に `%%` で囲われた文字列の中身を変更しないでください。  
+これらを変更すると、適切なメッセージが表示されなくなります。
+:::
+
+#### 標準的な変数値 {#standard-variable-values}
+
+メッセージ固有の変数です。メッセージの出力時に適宜保管されます。
+
+例： 
+```properties
+notice.token.dead.suggest=GitHub トークンを再発行または設定するには %%command%% を実行してください。
+```
+は、以下のように出力されます。
+```text
+GitHub トークンを再発行または設定するには /kpm register を実行してください。
+```
+
+#### 色値 {#color-variable-values}
+
+メッセージの色を指定する変数です。実行時に、 Minecraft の装飾コードに変換されます。
+以下の値が有効です。
++ `%%black%%` - 黒
++ `%%dark_blue%%` - 濃い青
++ `%%dark_green%%` - 濃い緑
++ `%%dark_aqua%%` - 濃い水色
++ `%%dark_red%%` - 濃い赤
++ `%%dark_purple%%` - 濃い紫
++ `%%gold%%` - 金色
++ `%%gray%%` - 灰色
++ `%%dark_gray%%` - 濃い灰色
++ `%%blue%%` - 青
++ `%%green%%` - 緑
++ `%%aqua%%` - 水色
++ `%%red%%` - 赤
++ `%%light_purple%%` - 紫
++ `%%yellow%%` - 黄色
++ `%%white%%` - 白
++ `%%reset%%` - もとの色に戻したり、装飾を解除します。
++ `%%bold%%` - 太字にします。
++ `%%strikethrough%%` - 取り消し線を引きます。
++ `%%underline%%` - 下線を引きます。
++ `%%italic%%` - 斜体にします。
++ `%%obfuscated%%` - ランダムな文字に変換します。
+
+:::tip
+これらのコードは、全てのメッセージで有効です。
+:::
+
+#### 言語値 {#language-variable-values}
+
+他のメッセージの内容を参照する変数です。  
+例：
+```properties
+tasks.uninstall=プラグインのアンインストール
+tasks.uninstall.errors.some_plugin=いくつかの%%tasks.uninstall%%が失敗しました。
+```
+この場合、 `tasks.uninstall` は `プラグインのアンインストール` という値を持ちます。
+そのため、出力は以下のようになります。
+```text
+プラグインのアンインストールが失敗しました。
+```
+
+### KPM の日本語記述ポリシー {#japanese-language-policy}
+
+KPM では、インタフェースのみやすさと、翻訳の容易さを考慮し、以下のようなポリシーを定めています。
+
++ 難解な漢語を使わない 
+  例： `削除中` ではなく `削除しています` など
++ 簡潔な日本語を使う
+  例： `することができる` ではなく `できる` など
++ 半角と全角の間に 半角スペース を挿入する
+  例： `GitHubトークン` ではなく `GitHub トークン` など
++ 英語の固有名詞は翻訳しない
+  例： `GitHub` など
++ 句読点を使いすぎない
+  ダメな例： `GitHub トークンを、再発行、または、発行するには、/kpm register を、実行するか、設定してください。`
+
+:::tip
+これらのポリシーは、翻訳者の裁量によって変更される可能性があります。  
+また、このポリシーは KPM の日本語記述ポリシーであり、独自で翻訳する場合は従う必要はありません。
+:::

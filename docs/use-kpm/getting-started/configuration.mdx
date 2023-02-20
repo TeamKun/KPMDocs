@@ -23,6 +23,24 @@ KPM の設定ファイルは `plugins/TeamKUNPluginManager/config.yml` の１つ
 
 ## 設定一覧 {#config-list}
 
+### \[インタフェース] インタフェースの設定 {#interface}
+
+KPM のインタフェースをカスタマイズします。
+
+---
+
+#### `interface`.`lang` {#interface-lang}
+
+KPM の全ての出力の言語を変更します。
+対応している言語は以下の通りです：
+* `ja_JP` - 日本語（日本）
+* `en_US` - English (US)
+* `ja_KS` - 関西弁（大阪らへん)
+
++ デフォルト値： `ja_JP`
++ 型： `Enum{ja_JP, en_US, ja_KS}`
+
+
 ### \[パス] データベース・パスの設定 {#paths-database}
 
 各ファイルのパスを設定します。
