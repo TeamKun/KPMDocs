@@ -73,6 +73,10 @@ const config = {
             to: "/docs/home",
             from: ["/docs/"],
           },
+          {
+            to: "/dev-docs/home",
+            from: ["/dev-docs/"],
+          },
         ],
       },
     ],
