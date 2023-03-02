@@ -48,7 +48,7 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "KPM v3 (WIP)",
+              label: "KPM v3",
             },
             v2: {
               label: "KPM v2",
