@@ -20,11 +20,6 @@ const init = async () => {
     await git().clone(TARGET_REPO, destOrigin)
 }
 
-const checkoutTag = async (version) => {
-    const repo = git(destOrigin)
-    await repo.checkout(version)
-}
-
 const attach_process = (proc): Promise<void> => {
     proc.stdout.on("data", (data) => {
         console.log(data.toString())
@@ -68,16 +63,23 @@ const deepCopy = (src, dest) => {
 }
 
 const generateJavadoc = async (version) => {
-    await checkoutTag(version)
+    const origin = `${temp_dir}/gen/${version}`
+
+    fs.mkdirSync(origin, { recursive: true })
+
+    deepCopy(destOrigin, origin)
+
+    const repo = git(origin)
+    await repo.checkout(version)
 
     const installProc = child_process.spawn(MAVEN_COMMAND, ["install", "-DskipTests"], {
-        cwd: destOrigin,
+        cwd: origin,
         env: process.env
     })
     await attach_process(installProc)
 
     const javadocProc = child_process.spawn(MAVEN_COMMAND, ["javadoc:javadoc", "-Dmaven.javadoc.failOnError=false"], {
-        cwd: destOrigin,
+        cwd: origin,
         env: process.env
     })
     await attach_process(javadocProc)
@@ -86,8 +88,10 @@ const generateJavadoc = async (version) => {
     if (!fs.existsSync(dest))
         fs.mkdirSync(dest, { recursive: true })
 
-    const javadocDir = `${destOrigin}/KPMDaemon/target/site/apidocs`
+    const javadocDir = `${origin}/KPMDaemon/target/site/apidocs`
     deepCopy(javadocDir, dest)
+
+    fs.rmSync(origin, { recursive: true })
 }
 
 const main = async () => {
