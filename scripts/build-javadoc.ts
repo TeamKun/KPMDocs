@@ -1,4 +1,41 @@
-import javadocs from "../javadocs.json"
+// import javadocs from "../javadocs.json"
+
+import * as path from "path";
+
+const javadocs = [
+    {
+        "version": "v3.0.0-pre8",
+        "releaseDate": 1672336880,
+        "mainFeatures": [
+            "JavaDoc 初期バージョン",
+            "KPM 自己アップグレーダ"
+        ]
+    },
+    {
+        "version": "v3.0.0-pre9",
+        "releaseDate": 1674536840,
+        "mainFeatures": [
+            "**モジュールの細分化**",
+            "KPM Registry の実装",
+            "デバッグ用プロパティ"
+        ]
+    },
+    {
+        "version": "v3.0.0-pre10",
+        "releaseDate": 1676812830,
+        "mainFeatures": [
+            "**多言語化**",
+            "関西弁"
+        ]
+    },
+    {
+        "version": "v3.0.0",
+        "releaseDate": 1677753951,
+        "mainFeatures": [
+            "KPM v3 正式リリース"
+        ]
+    }
+]
 
 const TARGET_REPO = "https://github.com/TeamKUN/TeamKUNPluginManager"
 const TARGET_VERSIONS = javadocs.map((javadoc) => javadoc.version)
@@ -22,15 +59,16 @@ const init = async () => {
 
 const attach_process = (proc): Promise<void> => {
     proc.stdout.on("data", (data) => {
-        console.log(data.toString())
-    })
+        process.stdout.write(data.toString());
+    });
+
     proc.stderr.on("data", (data) => {
-        console.error(data.toString())
-    })
+        process.stderr.write(data.toString());
+    });
 
     proc.on("close", (code) => {
-        console.log(`Process exited with code ${code}`)
-    })
+        console.log(`Process exited with code ${code}`);
+    });
 
     // Wait for process to exit
     return new Promise((resolve, reject) => {
@@ -43,24 +81,24 @@ const attach_process = (proc): Promise<void> => {
     })
 }
 
-const deepCopy = (src, dest) => {
-    if (fs.lstatSync(src).isDirectory() && !fs.existsSync(dest)) {
-        fs.mkdirSync(dest, {
-            recursive: true
-        })
+const deepCopy = (src: string, dest: string) => {
+    if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest);
     }
 
-    fs.readdirSync(src).forEach((file) => {
-        const srcPath = `${src}/${file}`
-        const destPath = `${dest}/${file}`
-        if (fs.lstatSync(srcPath).isDirectory()) {
-            deepCopy(srcPath, destPath)
+    const entries = fs.readdirSync(src, { withFileTypes: true });
+
+    for (const entry of entries) {
+        const srcPath = path.join(src, entry.name);
+        const destPath = path.join(dest, entry.name);
+
+        if (entry.isDirectory()) {
+            deepCopy(srcPath, destPath);
+        } else {
+            fs.copyFileSync(srcPath, destPath);
         }
-        else {
-            fs.createWriteStream(destPath).write(fs.readFileSync(srcPath))
-        }
-    })
-}
+    }
+};
 
 const generateJavadoc = async (version) => {
     const origin = `${temp_dir}/gen/${version}`
@@ -78,7 +116,7 @@ const generateJavadoc = async (version) => {
     })
     await attach_process(installProc)
 
-    const javadocProc = child_process.spawn(MAVEN_COMMAND, ["javadoc:javadoc", "-Dmaven.javadoc.failOnError=false"], {
+    const javadocProc = child_process.spawn(MAVEN_COMMAND, ["javadoc:aggregate", "-Dmaven.javadoc.failOnError=false"], {
         cwd: origin,
         env: process.env
     })
@@ -88,7 +126,7 @@ const generateJavadoc = async (version) => {
     if (!fs.existsSync(dest))
         fs.mkdirSync(dest, { recursive: true })
 
-    const javadocDir = `${origin}/KPMDaemon/target/site/apidocs`
+    const javadocDir = `${origin}/target/site/apidocs`
     deepCopy(javadocDir, dest)
 
     fs.rmSync(origin, { recursive: true })
