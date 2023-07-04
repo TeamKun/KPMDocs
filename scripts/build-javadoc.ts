@@ -116,7 +116,7 @@ const generateJavadoc = async (version) => {
     })
     await attach_process(installProc)
 
-    const javadocProc = child_process.spawn(MAVEN_COMMAND, ["javadoc:javadoc", "-Dmaven.javadoc.failOnError=false"], {
+    const javadocProc = child_process.spawn(MAVEN_COMMAND, ["javadoc:aggregate", "-Dmaven.javadoc.failOnError=false"], {
         cwd: origin,
         env: process.env
     })
@@ -126,7 +126,7 @@ const generateJavadoc = async (version) => {
     if (!fs.existsSync(dest))
         fs.mkdirSync(dest, { recursive: true })
 
-    const javadocDir = `${origin}/KPMDaemon/target/site/apidocs`
+    const javadocDir = `${origin}/target/site/apidocs`
     deepCopy(javadocDir, dest)
 
     fs.rmSync(origin, { recursive: true })
